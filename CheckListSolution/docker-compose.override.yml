@@ -1,0 +1,59 @@
+version: '3.4'
+
+services:
+
+  sqlserver: 
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Passw0rd!!
+    ports:
+      - "21433:1433"
+    networks:
+      - check_list_network
+    #volumes:
+    #  - sql_data:/var/opt/mssql
+
+  redis:
+    ports:
+      - "26379:6379"
+    networks:
+      - check_list_network
+
+  rabbitmq:
+    ports:
+      - "25672:5672"
+      - "25673:5673"
+      - "35672:15672" 
+    networks:
+      - check_list_network
+    volumes:      
+      - rabbitmq_data:/var/lib/rabbitmq/
+
+  api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "20000:80"
+    networks:
+      - check_list_network
+    env_file:
+      - env.api
+
+  identity:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "20001:80"
+    networks:
+      - check_list_network
+    env_file:
+      - env.identity
+
+volumes:
+  sql_data:
+  rabbitmq_data:
+
+networks:
+  check_list_network:
+    name: CheckListNet
+    driver: bridge

@@ -1,0 +1,93 @@
+[11:42:03:130 INF ()] Starting up
+[11:42:03:949 DBG ()] Initializing Razor view compiler with no compiled views.
+[11:42:04:296 DBG ()] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.Versioning.ApiVersionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+[11:42:04:625 INF ()] User profile is available. Using 'C:\Users\Настя\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[11:42:24:596 INF ()] Starting up
+[11:42:24:760 DBG ()] Initializing Razor view compiler with no compiled views.
+[11:42:24:869 DBG ()] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.Versioning.ApiVersionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+[11:42:24:946 INF ()] User profile is available. Using 'C:\Users\Настя\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[11:42:25:431 DBG ()] An 'IServiceProvider' was created for internal use by Entity Framework.
+[11:42:59:436 INF ()] Starting up
+[11:43:00:851 DBG ()] Initializing Razor view compiler with no compiled views.
+[11:43:01:100 DBG ()] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.Versioning.ApiVersionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+[11:43:01:334 INF ()] User profile is available. Using 'C:\Users\Настя\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[11:43:01:832 DBG ()] An 'IServiceProvider' was created for internal use by Entity Framework.
+[11:43:02:614 INF ()] Entity Framework Core 6.0.4 initialized 'MainDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.4' with options: CommandTimeout=600 
+[11:43:02:985 DBG ()] Migrating using database 'CheckListNet' on server 'localhost,21433'.
+[11:43:02:998 DBG ()] Opening connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:03:884 DBG ()] Opened connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:03:894 DBG ()] Creating DbCommand for 'ExecuteNonQuery'.
+[11:43:03:904 DBG ()] Created DbCommand for 'ExecuteNonQuery' (6ms).
+[11:43:03:924 DBG ()] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='600']
+SELECT 1
+[11:43:03:981 INF ()] Executed DbCommand (62ms) [Parameters=[], CommandType='"Text"', CommandTimeout='600']
+SELECT 1
+[11:43:03:986 DBG ()] Closing connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:03:993 DBG ()] Closed connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:04:002 DBG ()] Creating DbCommand for 'ExecuteScalar'.
+[11:43:04:003 DBG ()] Created DbCommand for 'ExecuteScalar' (1ms).
+[11:43:04:007 DBG ()] Opening connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:04:011 DBG ()] Opened connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:04:014 DBG ()] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='600']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[11:43:04:038 INF ()] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='600']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[11:43:04:042 DBG ()] Closing connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:04:045 DBG ()] Closed connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:04:048 DBG ()] Opening connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:04:051 DBG ()] Opened connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:04:054 DBG ()] Creating DbCommand for 'ExecuteNonQuery'.
+[11:43:04:055 DBG ()] Created DbCommand for 'ExecuteNonQuery' (1ms).
+[11:43:04:057 DBG ()] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='600']
+SELECT 1
+[11:43:04:065 INF ()] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='600']
+SELECT 1
+[11:43:04:070 DBG ()] Closing connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:04:072 DBG ()] Closed connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:04:077 DBG ()] Creating DbCommand for 'ExecuteScalar'.
+[11:43:04:078 DBG ()] Created DbCommand for 'ExecuteScalar' (1ms).
+[11:43:04:081 DBG ()] Opening connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:04:084 DBG ()] Opened connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:04:087 DBG ()] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='600']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[11:43:04:092 INF ()] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='600']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[11:43:04:096 DBG ()] Closing connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:04:101 DBG ()] Closed connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:04:524 DBG ()] Creating DbCommand for 'ExecuteReader'.
+[11:43:04:528 DBG ()] Created DbCommand for 'ExecuteReader' (4ms).
+[11:43:04:533 DBG ()] Opening connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:04:536 DBG ()] Opened connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:04:540 DBG ()] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='600']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[11:43:04:552 INF ()] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='600']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[11:43:04:561 DBG ()] A data reader was disposed.
+[11:43:04:566 DBG ()] Closing connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:04:570 DBG ()] Closed connection to database 'CheckListNet' on server 'localhost,21433'.
+[11:43:04:591 DBG ()] No migrations were found in assembly 'CheckListDbContext'.
+[11:43:04:597 INF ()] No migrations were applied. The database is already up to date.
+[11:43:04:600 DBG ()] 'MainDbContext' disposed.
+[11:43:04:609 DBG ()] Hosting starting
+[11:43:04:672 DBG ()] Reading data from file 'C:\Users\Настя\AppData\Local\ASP.NET\DataProtection-Keys\key-451da053-5596-476d-96dd-5f386ffb4a16.xml'.
+[11:43:04:698 DBG ()] Found key {451da053-5596-476d-96dd-5f386ffb4a16}.
+[11:43:04:724 DBG ()] Considering key {451da053-5596-476d-96dd-5f386ffb4a16} with expiration date 2022-07-21 13:29:54Z as default key.
+[11:43:04:731 DBG ()] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[11:43:04:736 DBG ()] Decrypting secret element using Windows DPAPI.
+[11:43:04:748 DBG ()] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[11:43:04:758 DBG ()] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+[11:43:04:772 DBG ()] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+[11:43:04:788 DBG ()] Using key {451da053-5596-476d-96dd-5f386ffb4a16} as the default key.
+[11:43:04:791 DBG ()] Key ring with default key {451da053-5596-476d-96dd-5f386ffb4a16} was loaded during application startup.
+[14:24:25:384 INF ()] Starting up
+[14:24:25:754 DBG ()] Initializing Razor view compiler with no compiled views.
+[14:24:26:102 DBG ()] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.Versioning.ApiVersionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+[14:24:26:250 INF ()] User profile is available. Using 'C:\Users\Настя\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[14:24:26:924 DBG ()] An 'IServiceProvider' was created for internal use by Entity Framework.
+[14:24:27:493 INF ()] Entity Framework Core 6.0.4 initialized 'MainDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.4' with options: CommandTimeout=600 
+[14:24:27:610 DBG ()] Migrating using database 'CheckListNet' on server 'localhost,21433'.
+[14:24:27:623 DBG ()] Opening connection to database 'CheckListNet' on server 'localhost,21433'.
