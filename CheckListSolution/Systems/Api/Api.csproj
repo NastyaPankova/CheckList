@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <Folder Include="Controllers\ListItem\Models\" />
     <Folder Include="logs\" />
   </ItemGroup>
 

@@ -20,7 +20,7 @@ var services = builder.Services;
 
 services.AddHttpContextAccessor();
 
-services.AddAppDbContext(settings);
+//services.AddAppDbContext(settings);
 
 services.AddAppHealthCheck();
 
@@ -65,6 +65,6 @@ app.MapRazorPages();
 
 app.MapControllers();
 
-app.UseAppDbContext();
+//app.UseAppDbContext();
 
 app.Run();
