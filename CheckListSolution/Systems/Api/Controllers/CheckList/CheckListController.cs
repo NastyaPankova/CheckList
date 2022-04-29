@@ -20,11 +20,11 @@ public class CheckListController : ControllerBase
     }
 
     [HttpGet("")]
-    public List<CheckListResponse> GetCheckList()
+    public List<UpdateCheckListRequest> GetCheckList()
     {
-        return new List<CheckListResponse>()
+        return new List<UpdateCheckListRequest>()
         {
-            new CheckListResponse() { IdList = 1, NameList = "First List" }
+            new UpdateCheckListRequest() { IdList = 1, NameList = "First List" }
         };
     }
 
