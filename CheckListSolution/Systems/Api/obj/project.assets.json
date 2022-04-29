@@ -1296,9 +1296,27 @@
           "bin/placeholder/CheckListDbContext.dll": {}
         }
       },
+      "CheckListService/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CheckListService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CheckListService.dll": {}
+        }
+      },
       "Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "FluentValidation": "10.4.0",
+          "FluentValidation.DependencyInjectionExtensions": "10.4.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
         "compile": {
           "bin/placeholder/Common.dll": {}
         },
@@ -3564,6 +3582,11 @@
       "path": "../../Data/MainDbContext/CheckListDbContext.csproj",
       "msbuildProject": "../../Data/MainDbContext/CheckListDbContext.csproj"
     },
+    "CheckListService/1.0.0": {
+      "type": "project",
+      "path": "../../Services/CheckListService/CheckListService.csproj",
+      "msbuildProject": "../../Services/CheckListService/CheckListService.csproj"
+    },
     "Common/1.0.0": {
       "type": "project",
       "path": "../../Shared/Common/Common.csproj",
@@ -3578,6 +3601,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "CheckListDbContext >= 1.0.0",
+      "CheckListService >= 1.0.0",
       "Common >= 1.0.0",
       "FluentValidation >= 10.4.0",
       "FluentValidation.AspNetCore >= 10.4.0",
@@ -3625,6 +3649,9 @@
           "projectReferences": {
             "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Data\\MainDbContext\\CheckListDbContext.csproj": {
               "projectPath": "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Data\\MainDbContext\\CheckListDbContext.csproj"
+            },
+            "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Services\\CheckListService\\CheckListService.csproj": {
+              "projectPath": "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Services\\CheckListService\\CheckListService.csproj"
             },
             "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Services\\Settings\\Settings.csproj": {
               "projectPath": "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Services\\Settings\\Settings.csproj"

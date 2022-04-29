@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Shared\\Common\\Common.csproj": {}
+    "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Services\\CheckListService\\CheckListService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Shared\\Common\\Common.csproj": {
+    "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Services\\CheckListService\\CheckListService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Shared\\Common\\Common.csproj",
-        "projectName": "Common",
-        "projectPath": "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Shared\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Services\\CheckListService\\CheckListService.csproj",
+        "projectName": "CheckListService",
+        "projectPath": "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Services\\CheckListService\\CheckListService.csproj",
         "packagesPath": "C:\\Users\\Настя\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Shared\\Common\\obj\\",
+        "outputPath": "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Services\\CheckListService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -43,14 +43,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "FluentValidation": {
-              "target": "Package",
-              "version": "[10.4.0, )"
-            },
-            "FluentValidation.DependencyInjectionExtensions": {
-              "target": "Package",
-              "version": "[10.4.0, )"
-            },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[6.0.0, )"

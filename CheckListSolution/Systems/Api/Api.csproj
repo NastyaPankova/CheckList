@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Data\MainDbContext\CheckListDbContext.csproj" />
+    <ProjectReference Include="..\..\Services\CheckListService\CheckListService.csproj" />
     <ProjectReference Include="..\..\Services\Settings\Settings.csproj" />
     <ProjectReference Include="..\..\Shared\Common\Common.csproj" />
   </ItemGroup>

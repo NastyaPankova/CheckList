@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbEntities", "Data\DbEntiti
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{C4F0EF85-2C0E-44B9-B3EA-15AF71DF372C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Shared\Common\Common.csproj", "{B72BB6CC-6AC7-4184-9152-4DA47DA02C2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Shared\Common\Common.csproj", "{B72BB6CC-6AC7-4184-9152-4DA47DA02C2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckListService", "Services\CheckListService\CheckListService.csproj", "{8E651368-7E26-4F97-B783-231A4DF25969}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{B72BB6CC-6AC7-4184-9152-4DA47DA02C2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B72BB6CC-6AC7-4184-9152-4DA47DA02C2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B72BB6CC-6AC7-4184-9152-4DA47DA02C2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E651368-7E26-4F97-B783-231A4DF25969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E651368-7E26-4F97-B783-231A4DF25969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E651368-7E26-4F97-B783-231A4DF25969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E651368-7E26-4F97-B783-231A4DF25969}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +82,7 @@ Global
 		{30404F98-B5BB-4C36-8F15-565B953424C0} = {08C59F84-A79B-4BFA-AC40-5EC7DEF162CE}
 		{64B32933-A36A-4722-BE23-4D4E15182753} = {08C59F84-A79B-4BFA-AC40-5EC7DEF162CE}
 		{B72BB6CC-6AC7-4184-9152-4DA47DA02C2F} = {C4F0EF85-2C0E-44B9-B3EA-15AF71DF372C}
+		{8E651368-7E26-4F97-B783-231A4DF25969} = {BB54BC2C-41C0-4025-9BDF-F2CF4CEF85F4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {971950C1-4F5D-4C2A-8992-AE3E7BCD31AF}

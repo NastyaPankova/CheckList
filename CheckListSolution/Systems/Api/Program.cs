@@ -2,6 +2,7 @@ using Api.Configuration;
 using Settings;
 using Settings.Interface;
 using Serilog;
+using Api;
 // Configure application
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,11 +31,11 @@ services.AddAppSwagger(settings);
 
 services.AddAppCors();
 
-//services.AddAppServices();
+services.AddAppServices();
 
 //services.AddAppAuth(settings);
 
-//services.AddControllers().AddValidator();
+services.AddControllers().AddValidator();
 
 services.AddRazorPages();
 
