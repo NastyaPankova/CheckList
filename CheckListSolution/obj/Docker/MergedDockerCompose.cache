@@ -15,8 +15,8 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       CONNECTION_STRING_DATABASE: CheckListNet
-      CONNECTION_STRING_HOST: sqldata
-      CONNECTION_STRING_PASSWORD: Passw0rd
+      CONNECTION_STRING_HOST: sqlserver
+      CONNECTION_STRING_PASSWORD: Passw0rd!!
       CONNECTION_STRING_USER: sa
       IDENTITY_SERVER_CLIENT_ID: CheckListNet
       IDENTITY_SERVER_CLIENT_SECRET: '123456'
@@ -39,8 +39,8 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       CONNECTION_STRING_DATABASE: CheckListNet
-      CONNECTION_STRING_HOST: sqldata
-      CONNECTION_STRING_PASSWORD: Passw0rd
+      CONNECTION_STRING_HOST: sqlserver
+      CONNECTION_STRING_PASSWORD: Passw0rd!!
       CONNECTION_STRING_USER: sa
       IDENTITY_SERVER_CLIENT_ID: CheckListNet
       IDENTITY_SERVER_CLIENT_SECRET: '123456'
@@ -74,16 +74,13 @@ services:
   sqlserver:
     environment:
       ACCEPT_EULA: "Y"
-      MSSQL_PID: Express
-      SA_PASSWORD: Passw0rd
+      SA_PASSWORD: Passw0rd!!
     image: mcr.microsoft.com/mssql/server:2019-latest
     networks:
       check_list_network: {}
     ports:
     - published: 21433
       target: 1433
-    volumes:
-    - sql_data:/var/opt/mssql:rw
 version: '3.4'
 volumes:
   rabbitmq_data: {}

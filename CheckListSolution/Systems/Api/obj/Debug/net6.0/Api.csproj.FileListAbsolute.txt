@@ -80,7 +80,6 @@ C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\obj\Deb
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\obj\Debug\net6.0\Api.AssemblyInfoInputs.cache
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\obj\Debug\net6.0\Api.AssemblyInfo.cs
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\obj\Debug\net6.0\Api.csproj.CoreCompileInputs.cache
-C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\obj\Debug\net6.0\Api.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\obj\Debug\net6.0\Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\obj\Debug\net6.0\staticwebassets.development.json
@@ -91,3 +90,5 @@ C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\obj\Deb
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\obj\Debug\net6.0\Api.pdb
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\obj\Debug\net6.0\Api.genruntimeconfig.cache
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\obj\Debug\net6.0\ref\Api.dll
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\CheckListService.dll
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\CheckListService.pdb

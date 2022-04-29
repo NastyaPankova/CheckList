@@ -9,6 +9,7 @@
       "Api/1.0.0": {
         "dependencies": {
           "CheckListDbContext": "1.0.0",
+          "CheckListService": "1.0.0",
           "Common": "1.0.0",
           "FluentValidation": "10.4.0",
           "FluentValidation.AspNetCore": "10.4.0",
@@ -895,7 +896,20 @@
           "CheckListDbContext.dll": {}
         }
       },
+      "CheckListService/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
+        "runtime": {
+          "CheckListService.dll": {}
+        }
+      },
       "Common/1.0.0": {
+        "dependencies": {
+          "FluentValidation": "10.4.0",
+          "FluentValidation.DependencyInjectionExtensions": "10.4.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
         "runtime": {
           "Common.dll": {}
         }
@@ -1566,6 +1580,11 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "CheckListDbContext/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CheckListService/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
