@@ -11,12 +11,12 @@ using Microsoft.AspNetCore.Mvc;
 public class CheckListController : ControllerBase
 {
     private readonly ILogger<CheckListController> logger;
-    //private readonly ICheckListService checkListService;
+    private readonly ICheckListService checkListService;
 
-    public CheckListController(ILogger<CheckListController> logger/*, ICheckListService checkListService*/)
+    public CheckListController(ILogger<CheckListController> logger, ICheckListService checkListService)
     {
         this.logger = logger;
-        //this.checkListService = checkListService;
+        this.checkListService = checkListService;
     }
 
     [HttpPost("")]

@@ -5,8 +5,8 @@ public class UpdateCheckListRequest
 {
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
-    public int IdList { get; set; }
-    public int IdUser { get; set; }
+    public int CheckListId { get; set; }
+    public int UserId { get; set; }
 
 }
 
@@ -22,8 +22,8 @@ public class UpdateCheckListValidator : AbstractValidator<UpdateCheckListRequest
         RuleFor(x => x.Description)
             .MaximumLength(150).WithMessage("Description is too long (no more then 150 symbols)");
 
-        RuleFor(x => x.IdList).NotEmpty().WithMessage("IdList is  required");
+        RuleFor(x => x.CheckListId).NotEmpty().WithMessage("IdList is  required");
 
-        RuleFor(x => x.IdUser).NotEmpty().WithMessage("IdUser is  required");
+        RuleFor(x => x.UserId).NotEmpty().WithMessage("IdUser is  required");
     }
 }

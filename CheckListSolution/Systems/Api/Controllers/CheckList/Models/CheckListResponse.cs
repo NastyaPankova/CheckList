@@ -7,5 +7,6 @@ public class CheckListResponse
         public string Name { get; set; } = string.Empty;
         public DateTime Date { get; set; }
         public string Description { get; set; } = string.Empty;
-        public int IdUser { get; set; }
+        public int UserId { get; set; }
+        public int PermisionId { get; set; }
 }
