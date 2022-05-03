@@ -39,7 +39,7 @@ services.AddControllers().AddValidator();
 
 services.AddRazorPages();
 
-//services.AddAutoMappers();
+services.AddAutoMappers();
 
 
 var app = builder.Build();

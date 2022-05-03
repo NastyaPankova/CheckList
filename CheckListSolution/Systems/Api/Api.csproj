@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="FluentValidation" Version="10.4.0" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="10.4.0" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
@@ -23,7 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\ListItem\Models\" />
+    <Folder Include="Controllers\ListItems\Models\" />
+    <Folder Include="Controllers\Users\" />
     <Folder Include="logs\" />
   </ItemGroup>
 

@@ -25,7 +25,7 @@ public class CheckListController : ControllerBase
         CheckListResponse newCheckList = new CheckListResponse();
         newCheckList.Name = request.Name;
         newCheckList.Description = request.Description;
-        newCheckList.IdUser = request.IdUser;
+        newCheckList.UserId = request.UserId;
         return newCheckList;
 
     }
