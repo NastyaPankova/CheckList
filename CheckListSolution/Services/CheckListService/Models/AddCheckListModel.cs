@@ -1,20 +1,19 @@
-﻿using AutoMapper;
-using FluentValidation;
-using CheckListService.Models;
+﻿using FluentValidation;
 
-namespace Api.Controllers.CheckList.Models;
-public class AddCheckListRequest
-{
+
+namespace CheckListService.Models;
+public class AddCheckListModel
+{ 
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
     public int UserId { get; set; }
 
 }
 
-public class AddCheckListValidator : AbstractValidator<AddCheckListRequest>
+public class AddCheckListModelValidator : AbstractValidator<AddCheckListModel>
 {
     // CHANGED: add variable for number of symbols
-    public AddCheckListValidator()
+    public AddCheckListModelValidator()
     {
         RuleFor(x => x.Name)
             .NotEmpty().WithMessage("Name is  required (no more then 50 symbols)")
@@ -24,13 +23,5 @@ public class AddCheckListValidator : AbstractValidator<AddCheckListRequest>
             .MaximumLength(150).WithMessage("Description is too long (no more then 150 symbols)");
 
         RuleFor(x => x.UserId).NotEmpty().WithMessage("IdUser is required");
-    }
-}
-
-public class AddCheckListRequestProfile : Profile
-{
-    public AddCheckListRequestProfile()
-    {
-        CreateMap<AddCheckListRequest, AddCheckListModel>();
     }
 }

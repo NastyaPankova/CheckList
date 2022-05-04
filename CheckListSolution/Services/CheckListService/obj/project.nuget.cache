@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "KEblohxRaNvettCF/d0cjDj7ChL93HuLMqaYh+XKxzKOyNpZUBFgWVDkxzAbgAsi1+FHPIiaQONpxm8p2xkW2g==",
+  "dgSpecHash": "50FEuztOK/hbhvdwBd5fBRDka159XbJ+NhRlL4FRyjAwDYlTkaf/0tJkgyiqwurMEot/t10wARBXclB/CYdmIA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Services\\CheckListService\\CheckListService.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Настя\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",
     "C:\\Users\\Настя\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
   ],
   "logs": []
