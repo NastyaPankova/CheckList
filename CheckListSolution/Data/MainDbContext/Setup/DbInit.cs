@@ -1,8 +1,7 @@
-﻿namespace CheckListDbContext.Setup;
-
-using CheckListDbContext.Context;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+
+namespace CheckListDbContext.Setup;
 
 public static class DbInit
 {

@@ -1,15 +1,12 @@
-﻿namespace CheckListDbContext.Setup;
-
-using CheckListDbContext.Context;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
+namespace CheckListDbContext.Setup;
 public static class DbSeed
 {
     public static void Execute(IServiceProvider serviceProvider)
     {
-        using var scope = serviceProvider.GetService<IServiceScopeFactory>()?.CreateScope();
+        using var scope = serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope();
         ArgumentNullException.ThrowIfNull(scope);
 
         var factory = scope.ServiceProvider.GetRequiredService<IDbContextFactory<MainDbContext>>();

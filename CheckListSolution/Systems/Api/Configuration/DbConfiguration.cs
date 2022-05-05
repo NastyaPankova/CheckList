@@ -1,10 +1,11 @@
-﻿namespace Api.Configuration;
-
-using CheckListDbContext.Context;
+﻿using CheckListDbContext;
 using CheckListDbContext.Factories;
 using Settings.Interface;
 using Microsoft.Extensions.DependencyInjection;
 using CheckListDbContext.Setup;
+
+
+namespace Api.Configuration;
 
 public static class DbConfiguration
 {

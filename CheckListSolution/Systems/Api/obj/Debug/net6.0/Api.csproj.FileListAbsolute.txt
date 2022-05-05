@@ -92,3 +92,12 @@ C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\obj\Deb
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\obj\Debug\net6.0\ref\Api.dll
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\CheckListService.dll
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\CheckListService.pdb
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\obj\Debug\net6.0\Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\EntityFramework.SqlServer.dll
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\EntityFramework.dll
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\DbEntities.dll
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\DbEntities.pdb

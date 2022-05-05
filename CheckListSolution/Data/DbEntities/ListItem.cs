@@ -1,9 +1,12 @@
-﻿namespace DbEntities;
-
+﻿using Common;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+namespace DbEntities;
 public class ListItem : BaseEntity
 {
+    [Required]
+    [MaxLength(CommonConstants.MaxContentItemLength)]
     public string Content { get; set; }
     public DateTime? DateTime { get; set; }
 

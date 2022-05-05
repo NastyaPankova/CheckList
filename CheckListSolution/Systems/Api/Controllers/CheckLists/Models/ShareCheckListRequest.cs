@@ -11,12 +11,11 @@ public class ShareCheckListRequest
 
 public class ShareCheckListValidator : AbstractValidator<ShareCheckListRequest>
 {
-    // CHANGED: add variable for number of symbols
     public ShareCheckListValidator()
     {
-        RuleFor(x => x.UserId).NotEmpty().WithMessage("IdUser is  required");
-        RuleFor(x => x.RecipientId).NotEmpty().WithMessage("IdRecipient is  required");
-        RuleFor(x => x.CheckListListId).NotEmpty().WithMessage("IdList is  required");
+        RuleFor(x => x.UserId).NotEmpty().WithMessage("UserId is  required");
+        RuleFor(x => x.RecipientId).NotEmpty().WithMessage("RecipientId is  required");
+        RuleFor(x => x.CheckListListId).NotEmpty().WithMessage("CheckListListId is  required");
 
     }
 }

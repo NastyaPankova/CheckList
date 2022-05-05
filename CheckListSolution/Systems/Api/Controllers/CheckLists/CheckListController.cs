@@ -1,7 +1,9 @@
 ﻿namespace Api.Controllers.CheckList;
 
 using Api.Controllers.CheckList.Models;
+using AutoMapper;
 using CheckListService;
+using CheckListService.Models;
 using Microsoft.AspNetCore.Mvc;
 
 [Route("api/v{version:apiVersion}/checklists")]
@@ -12,21 +14,22 @@ public class CheckListController : ControllerBase
 {
     private readonly ILogger<CheckListController> logger;
     private readonly ICheckListService checkListService;
+    private readonly IMapper mapper;
 
-    public CheckListController(ILogger<CheckListController> logger, ICheckListService checkListService)
+    public CheckListController(IMapper mapper, ILogger<CheckListController> logger, ICheckListService checkListService)
     {
         this.logger = logger;
         this.checkListService = checkListService;
+        this.mapper = mapper;
     }
 
     [HttpPost("")]
-    public CheckListResponse AddCheckList ([FromBody] AddCheckListRequest request)
+    public async Task<CheckListResponse> AddCheckList ([FromBody] AddCheckListRequest request)
     {
-        CheckListResponse newCheckList = new CheckListResponse();
-        newCheckList.Name = request.Name;
-        newCheckList.Description = request.Description;
-        newCheckList.UserId = request.UserId;
-        return newCheckList;
+        var model = mapper.Map<AddCheckListModel>(request);
+        var checkList = await checkListService.AddCheckList(model);
+        var response = mapper.Map<CheckListResponse>(checkList);
+        return response;
 
     }
 }

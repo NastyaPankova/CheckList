@@ -1,10 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using DbEntities;
 
-namespace CheckListDbContext.Context
+namespace CheckListDbContext
 {
     public class MainDbContext : DbContext
     {
-       public MainDbContext(DbContextOptions<MainDbContext> options) : base(options)   { }
+        public DbSet<CheckList> CheckLists { get; set; }
+        public DbSet<CheckListUser> CheckListUsers { get; set; }
+        public DbSet<ListItem> ListItems { get; set; }
+        public DbSet<Permision> Permisions { get; set; }
+        public DbSet<Status> Statuses { get; set; }
+
+        public MainDbContext(DbContextOptions<MainDbContext> options) : base(options)   { }
               
     }
 }
