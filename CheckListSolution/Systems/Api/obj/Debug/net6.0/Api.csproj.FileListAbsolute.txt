@@ -101,3 +101,6 @@ C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Deb
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\DbEntities.dll
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\DbEntities.pdb
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\appsettings.contextDesign.json
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\Humanizer.dll
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll

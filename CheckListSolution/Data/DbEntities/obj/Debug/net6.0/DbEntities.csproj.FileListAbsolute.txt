@@ -10,3 +10,6 @@ C:\Users\Настя\source\repos\CheckList\CheckListSolution\Data\DbEntities\obj
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Data\DbEntities\obj\Debug\net6.0\refint\DbEntities.dll
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Data\DbEntities\obj\Debug\net6.0\DbEntities.pdb
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Data\DbEntities\obj\Debug\net6.0\ref\DbEntities.dll
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Data\DbEntities\bin\Debug\net6.0\Common.dll
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Data\DbEntities\bin\Debug\net6.0\Common.pdb
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Data\DbEntities\obj\Debug\net6.0\DbEntities.csproj.CopyComplete

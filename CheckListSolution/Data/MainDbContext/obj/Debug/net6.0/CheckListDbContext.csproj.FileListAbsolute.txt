@@ -15,3 +15,5 @@ C:\Users\Настя\source\repos\CheckList\CheckListSolution\Data\MainDbContext\
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Data\MainDbContext\bin\Debug\net6.0\DbEntities.dll
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Data\MainDbContext\bin\Debug\net6.0\DbEntities.pdb
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Data\MainDbContext\obj\Debug\net6.0\CheckListDbContext.csproj.CopyComplete
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Data\MainDbContext\bin\Debug\net6.0\Common.dll
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Data\MainDbContext\bin\Debug\net6.0\Common.pdb

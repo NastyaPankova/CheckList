@@ -12,6 +12,13 @@ namespace CheckListDbContext
         public DbSet<Status> Statuses { get; set; }
 
         public MainDbContext(DbContextOptions<MainDbContext> options) : base(options)   { }
-              
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<CheckListUser>()
+           .HasKey(e => new { e.UserId, e.CheckListId });
+
+        }
+
     }
 }

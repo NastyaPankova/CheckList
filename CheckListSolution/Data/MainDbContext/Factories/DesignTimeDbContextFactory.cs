@@ -9,7 +9,7 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<MainDbCont
     public MainDbContext CreateDbContext(string[] args)
     {
         var configuration = new ConfigurationBuilder()
-             .AddJsonFile("appsettings.design.json")
+             .AddJsonFile("appsettings.contextDesign.json")
              .Build();
 
         var options = new DbContextOptionsBuilder<MainDbContext>()

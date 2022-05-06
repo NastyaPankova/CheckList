@@ -21,7 +21,7 @@ var services = builder.Services;
 
 services.AddHttpContextAccessor();
 
-//services.AddAppDbContext(settings);
+services.AddAppDbContext(settings);
 
 services.AddAppHealthCheck();
 
