@@ -29,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{C4F0EF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Shared\Common\Common.csproj", "{B72BB6CC-6AC7-4184-9152-4DA47DA02C2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckListService", "Services\CheckListService\CheckListService.csproj", "{8E651368-7E26-4F97-B783-231A4DF25969}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CheckListService", "Services\CheckListService\CheckListService.csproj", "{8E651368-7E26-4F97-B783-231A4DF25969}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

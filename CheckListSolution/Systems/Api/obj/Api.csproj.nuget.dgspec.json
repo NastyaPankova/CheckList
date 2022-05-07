@@ -200,7 +200,17 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Data\\DbEntities\\DbEntities.csproj": {
+                "projectPath": "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Data\\DbEntities\\DbEntities.csproj"
+              },
+              "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Data\\MainDbContext\\CheckListDbContext.csproj": {
+                "projectPath": "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Data\\MainDbContext\\CheckListDbContext.csproj"
+              },
+              "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Shared\\Common\\Common.csproj": {
+                "projectPath": "C:\\Users\\Настя\\source\\repos\\CheckList\\CheckListSolution\\Shared\\Common\\Common.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -216,6 +226,14 @@
             "FluentValidation": {
               "target": "Package",
               "version": "[10.4.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.4, )"
             },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",

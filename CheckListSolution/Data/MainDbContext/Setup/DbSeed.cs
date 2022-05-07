@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CheckListDbContext.Context;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CheckListDbContext.Setup;
@@ -12,10 +13,7 @@ public static class DbSeed
         var factory = scope.ServiceProvider.GetRequiredService<IDbContextFactory<MainDbContext>>();
         using var context = factory.CreateDbContext();
 
-        // CHANGED: can uncomment lines below
-        //context.Books.Add();
-
-        //context.SaveChanges();
+        context.SaveChanges();
 
     }
 }

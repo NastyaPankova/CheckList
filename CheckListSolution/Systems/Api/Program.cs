@@ -10,7 +10,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog((hostBuilderContext, loggerConfiguration) =>
 {
     loggerConfiguration
-    //.Enrich.WithCorrelationId()
     .ReadFrom.Configuration(hostBuilderContext.Configuration);
 });
 

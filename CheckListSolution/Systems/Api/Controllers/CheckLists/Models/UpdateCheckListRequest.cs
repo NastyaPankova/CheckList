@@ -1,4 +1,6 @@
-﻿using Common;
+﻿using AutoMapper;
+using CheckListService;
+using Common;
 using FluentValidation;
 
 namespace Api.Controllers.CheckList.Models;
@@ -27,5 +29,12 @@ public class UpdateCheckListValidator : AbstractValidator<UpdateCheckListRequest
         RuleFor(x => x.CheckListId).NotEmpty().WithMessage("ListId is  required");
 
         RuleFor(x => x.UserId).NotEmpty().WithMessage("UserId is  required");
+    }
+}
+public class UpdateCheckListProfile : Profile
+{
+    public UpdateCheckListProfile()
+    {
+        CreateMap<UpdateCheckListRequest, UpdateCheckListModel>();
     }
 }

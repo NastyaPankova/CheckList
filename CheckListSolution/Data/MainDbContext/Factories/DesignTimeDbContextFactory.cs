@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CheckListDbContext.Context;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
@@ -9,7 +10,7 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<MainDbCont
     public MainDbContext CreateDbContext(string[] args)
     {
         var configuration = new ConfigurationBuilder()
-             .AddJsonFile("appsettings.contextDesign.json")
+             .AddJsonFile("appsettings.context.design.json")
              .Build();
 
         var options = new DbContextOptionsBuilder<MainDbContext>()

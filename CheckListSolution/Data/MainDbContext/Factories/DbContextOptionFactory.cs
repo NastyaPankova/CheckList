@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CheckListDbContext.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace CheckListDbContext.Factories;
 

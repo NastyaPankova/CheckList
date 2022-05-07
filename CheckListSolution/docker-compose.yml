@@ -4,12 +4,6 @@ services:
   sqlserver: 
     image: mcr.microsoft.com/mssql/server:2019-latest
 
-  redis:
-    image: redis 
-    
-  rabbitmq:
-    image: rabbitmq:3-management
-  
   api:
     image: ${DOCKER_REGISTRY-}api
     build:
@@ -17,7 +11,6 @@ services:
       dockerfile: Systems/Api/Dockerfile
     depends_on:
       - sqlserver
-      - rabbitmq 
 
   identity:
     image: ${DOCKER_REGISTRY-}identity
@@ -26,4 +19,3 @@ services:
       dockerfile: Systems/Identity/Dockerfile
     depends_on:
       - sqlserver
-      - rabbitmq 

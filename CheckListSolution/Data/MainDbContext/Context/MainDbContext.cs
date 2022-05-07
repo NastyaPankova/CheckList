@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using DbEntities;
 
-namespace CheckListDbContext
+namespace CheckListDbContext.Context
 {
     public class MainDbContext : DbContext
     {
@@ -18,6 +18,9 @@ namespace CheckListDbContext
             modelBuilder.Entity<CheckListUser>()
            .HasKey(e => new { e.UserId, e.CheckListId });
 
+            modelBuilder.Entity<Permision>().HasIndex(u => u.Name).IsUnique();
+
+            modelBuilder.Entity<Status>().HasIndex(u => u.Name).IsUnique();
         }
 
     }

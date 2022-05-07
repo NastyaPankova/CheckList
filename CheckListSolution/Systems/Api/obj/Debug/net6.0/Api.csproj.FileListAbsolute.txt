@@ -1,5 +1,5 @@
-C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\appsettings.contextDesign.json
-C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\appsettings.context.design.json
+C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\appsettings.development.json
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\appsettings.json
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\Api.exe
 C:\Users\Настя\source\repos\CheckList\CheckListSolution\Systems\Api\bin\Debug\net6.0\Api.deps.json

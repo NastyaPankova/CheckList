@@ -11,5 +11,7 @@ namespace Common
         public const int MaxNameListLength = 50;
         public const int MaxDescriptionListLength = 150;
         public const int MaxContentItemLength = 300;
+        public const int Offset = 0;
+        public const int LimitCheckLists = 10;
     }
 }

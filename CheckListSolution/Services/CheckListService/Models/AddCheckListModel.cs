@@ -1,4 +1,6 @@
-﻿using FluentValidation;
+﻿using AutoMapper;
+using DbEntities;
+using FluentValidation;
 
 
 namespace CheckListService.Models;
@@ -23,5 +25,13 @@ public class AddCheckListModelValidator : AbstractValidator<AddCheckListModel>
             .MaximumLength(150).WithMessage("Description is too long (no more then 150 symbols)");
 
         RuleFor(x => x.UserId).NotEmpty().WithMessage("IdUser is required");
+    }
+}
+
+public class AddCheckListModelProfile : Profile
+{
+    public AddCheckListModelProfile()
+    {
+        CreateMap<AddCheckListModel, CheckList>();
     }
 }
