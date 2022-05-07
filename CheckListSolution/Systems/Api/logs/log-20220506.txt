@@ -1,0 +1,51 @@
+[23:04:23:452 INF ()] Starting up
+[23:04:23:614 DBG ()] Initializing Razor view compiler with no compiled views.
+[23:04:23:763 DBG ()] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.Versioning.ApiVersionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+[23:04:23:906 INF ()] User profile is available. Using 'C:\Users\Настя\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[23:04:23:924 DBG ()] Hosting starting
+[23:04:23:951 DBG ()] Reading data from file 'C:\Users\Настя\AppData\Local\ASP.NET\DataProtection-Keys\key-451da053-5596-476d-96dd-5f386ffb4a16.xml'.
+[23:04:23:975 DBG ()] Found key {451da053-5596-476d-96dd-5f386ffb4a16}.
+[23:04:24:014 DBG ()] Considering key {451da053-5596-476d-96dd-5f386ffb4a16} with expiration date 2022-07-21 13:29:54Z as default key.
+[23:04:24:092 DBG ()] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[23:04:24:142 DBG ()] Decrypting secret element using Windows DPAPI.
+[23:04:24:148 DBG ()] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[23:04:24:161 DBG ()] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+[23:04:24:170 DBG ()] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+[23:04:24:344 DBG ()] Using key {451da053-5596-476d-96dd-5f386ffb4a16} as the default key.
+[23:04:24:366 DBG ()] Key ring with default key {451da053-5596-476d-96dd-5f386ffb4a16} was loaded during application startup.
+[23:04:25:184 DBG ()] Loaded hosting startup assembly Api
+[23:04:25:485 DBG ()] Connection id "0HMHFJEFAMJRD" accepted.
+[23:04:25:589 DBG ()] Connection id "0HMHFJEFAMJRE" accepted.
+[23:04:26:485 DBG ()] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+[23:04:26:526 DBG ()] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+[23:04:26:494 DBG ()] Connection id "0HMHFJEFAMJRD" started.
+[23:04:26:536 DBG ()] Connection id "0HMHFJEFAMJRE" started.
+[23:04:26:534 DBG ()] Hosting started
+[23:04:27:254 DBG ()] Connection id "0HMHFJEFAMJRF" accepted.
+[23:04:28:003 DBG ()] Connection id "0HMHFJEFAMJRF" started.
+[23:04:28:006 DBG ()] Connection id "0HMHFJEFAMJRG" accepted.
+[23:04:28:026 DBG ()] Connection id "0HMHFJEFAMJRG" started.
+[23:04:28:177 INF ()] Request starting HTTP/1.1 GET http://localhost:20000/ - -
+[23:04:28:794 DBG ()] Wildcard detected, all requests with hosts will be allowed.
+[23:04:28:807 DBG ()] The request path / does not match a supported file type
+[23:04:28:896 DBG ()] No candidates found for the request path '/'
+[23:04:29:541 DBG ()] Request did not match any endpoints
+[23:04:29:642 DBG ()] The request path  does not match the path filter
+[23:04:30:052 INF ()] HTTP GET / responded 404 in 480.5491 ms
+[23:04:30:121 DBG ()] Connection id "0HMHFJEFAMJRG" completed keep alive response.
+[23:04:30:134 INF ()] Request finished HTTP/1.1 GET http://localhost:20000/ - - - 404 0 - 1964.4408ms
+[23:06:24:435 INF ()] Starting up
+[23:06:24:631 DBG ()] Initializing Razor view compiler with no compiled views.
+[23:06:24:800 DBG ()] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.Versioning.ApiVersionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+[23:06:24:884 INF ()] User profile is available. Using 'C:\Users\Настя\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[23:06:24:893 DBG ()] Hosting starting
+[23:06:24:909 DBG ()] Reading data from file 'C:\Users\Настя\AppData\Local\ASP.NET\DataProtection-Keys\key-451da053-5596-476d-96dd-5f386ffb4a16.xml'.
+[23:06:24:922 DBG ()] Found key {451da053-5596-476d-96dd-5f386ffb4a16}.
+[23:06:24:937 DBG ()] Considering key {451da053-5596-476d-96dd-5f386ffb4a16} with expiration date 2022-07-21 13:29:54Z as default key.
+[23:06:24:941 DBG ()] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[23:06:24:944 DBG ()] Decrypting secret element using Windows DPAPI.
+[23:06:24:948 DBG ()] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+[23:06:24:957 DBG ()] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+[23:06:24:964 DBG ()] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+[23:06:24:970 DBG ()] Using key {451da053-5596-476d-96dd-5f386ffb4a16} as the default key.
+[23:06:24:973 DBG ()] Key ring with default key {451da053-5596-476d-96dd-5f386ffb4a16} was loaded during application startup.

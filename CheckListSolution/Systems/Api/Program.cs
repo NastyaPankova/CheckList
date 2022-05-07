@@ -66,6 +66,6 @@ app.MapRazorPages();
 
 app.MapControllers();
 
-//app.UseAppDbContext();
+app.UseAppDbContext();
 
 app.Run();
