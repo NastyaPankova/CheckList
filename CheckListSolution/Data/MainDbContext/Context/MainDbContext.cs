@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using DbEntities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace CheckListDbContext.Context
 {
-    public class MainDbContext : DbContext
+    public class MainDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
     {
         public DbSet<CheckList> CheckLists { get; set; }
         public DbSet<CheckListUser> CheckListUsers { get; set; }

@@ -1,7 +1,9 @@
 ﻿namespace Api.Middlewares;
 
+using Common.Exeptions;
 using Common.Extensions;
 using Common.Responses;
+using FluentValidation;
 using System.Text.Json;
 
 public class ExceptionsMiddleware
@@ -20,9 +22,17 @@ public class ExceptionsMiddleware
         {
             await next.Invoke(context);
         }
-        catch (Exception ex)
+        catch (ValidationException e)
         {
-            response = ex.ToErrorResponse();
+            //response = e?.Errors.ToErrorResponse();
+        }
+        catch (ProcessException e)
+        {
+            response = e.ToErrorResponse();
+        }
+        catch (Exception e)
+        {
+            response = e.ToErrorResponse();
         }
         finally
         {

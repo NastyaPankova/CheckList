@@ -2,7 +2,6 @@
 using CheckListDbContext.Context;
 
 namespace CheckListDbContext.Factories;
-
 public class MainDbContextFactory
 {
     private readonly DbContextOptions<MainDbContext> options;

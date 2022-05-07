@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using CheckListDbContext.Context;
 using CheckListService.Models;
+using Common;
+using Common.Exeptions;
 using Common.Validator;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using System.Data.Entity.Infrastructure;
+using DbEntities;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace CheckListService;
 public class CheckListService : ICheckListService
@@ -28,71 +30,88 @@ public class CheckListService : ICheckListService
         this.updateCheckListModelValidator = updateCheckListModelValidator;
     }
 
-    public async Task<IEnumerable<BookModel>> GetBooks(int offset = 0, int limit = 10)
+    public async Task<IEnumerable<CheckListModel>> GetCheckLists(int offset = CommonConstants.Offset, 
+                                                                 int limit = CommonConstants.LimitCheckLists)
     {
         using var context = await contextFactory.CreateDbContextAsync();
 
-        var books = context
-            .Books
-            .Include(x => x.Author)
-            .AsQueryable();
+        //CHANGE: добавить автора списка
 
-        books = books
+        var checkLists = context.CheckLists.AsQueryable();
+
+        checkLists = checkLists
             .Skip(Math.Max(offset, 0))
             .Take(Math.Max(0, Math.Min(limit, 1000)));
 
-        var data = (await books.ToListAsync()).Select(book => mapper.Map<BookModel>(book));
+        var data = (await checkLists.ToListAsync()).Select(checkList => mapper.Map<CheckListModel>(checkList));
 
         return data;
     }
 
-    public async Task<BookModel> GetBook(int id)
+    public async Task<CheckListModel> GetCheckList(int id)
     {
         using var context = await contextFactory.CreateDbContextAsync();
 
-        var book = await context.Books.Include(x => x.Author).FirstOrDefaultAsync(x => x.Id.Equals(id));
+        var checkList = await context.CheckLists.FirstOrDefaultAsync(x => x.Id.Equals(id));
 
-        var data = mapper.Map<BookModel>(book);
+        var data = mapper.Map<CheckListModel>(checkList);
 
         return data;
     }
-    public async Task<BookModel> AddBook(AddBookModel model)
+    public async Task<CheckListModel> AddCheckList(AddCheckListModel model)
     {
-        addBookModelValidator.Check(model);
+        addCheckListModelValidator.Check(model);
 
         using var context = await contextFactory.CreateDbContextAsync();
 
-        var book = mapper.Map<Book>(model);
-        await context.Books.AddAsync(book);
+        var checkList = mapper.Map<CheckList>(model);
+        await context.CheckLists.AddAsync(checkList);
         context.SaveChanges();
 
-        return mapper.Map<BookModel>(book);
+        return mapper.Map<CheckListModel>(checkList);
     }
 
-    public async Task UpdateBook(int bookId, UpdateBookModel model)
+    public async Task UpdateCheckList(UpdateCheckListModel model)
     {
-        updateBookModelValidator.Check(model);
+        updateCheckListModelValidator.Check(model);
 
         using var context = await contextFactory.CreateDbContextAsync();
 
-        var book = await context.Books.FirstOrDefaultAsync(x => x.Id.Equals(bookId));
+        var checkList = await context.CheckLists.FirstOrDefaultAsync(x => x.Id.Equals(model.CheckListId));
 
-        ProcessException.ThrowIf(() => book is null, $"The book (id: {bookId}) was not found");
+        ProcessException.ThrowIf(() => checkList is null, $"CheckList (id: {model.CheckListId} was not found");
 
-        book = mapper.Map(model, book);
+        checkList = mapper.Map(model, checkList);
 
-        context.Books.Update(book);
+        context.CheckLists.Update(checkList);
         context.SaveChanges();
     }
 
-    public async Task DeleteBook(int bookId)
+    public async Task ShareCheckList(ShareCheckListModel model) //CHANGE: СДЕЛАТЬ!
+    {
+       /* shareCheckListModelValidator.Check(model);
+
+        using var context = await contextFactory.CreateDbContextAsync();
+
+        var checkList = await context.CheckLists.FirstOrDefaultAsync(x => x.Id.Equals(model.CheckListId));
+        ProcessException.ThrowIf(() => checkList is null, $"CheckList (id: {model.CheckListId} was not found");
+
+        checkList = mapper.Map(model, checkList);
+
+        context.CheckLists.Update(checkList);
+        context.SaveChanges();*/
+    }
+
+    public async Task DeleteCheckList(int id)
     {
         using var context = await contextFactory.CreateDbContextAsync();
 
-        var book = await context.Books.FirstOrDefaultAsync(x => x.Id.Equals(bookId))
-            ?? throw new ProcessException($"The book (id: {bookId}) was not found");
+        var checkList = await context.CheckLists.FirstOrDefaultAsync(x => x.Id.Equals(id));
+        ProcessException.ThrowIf(() => checkList is null, $"CheckList (id: {id} was not found");
 
-        context.Remove(book);
+       //CHANGE: проверить права на список
+
+        context.Remove(checkList);
         context.SaveChanges();
     }
 }

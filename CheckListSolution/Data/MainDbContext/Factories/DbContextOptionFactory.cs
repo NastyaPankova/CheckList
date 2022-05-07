@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 
 namespace CheckListDbContext.Factories;
-
 public class DbContextOptionFactory
 {
     public static DbContextOptions<MainDbContext> Create(string connectionString)
@@ -16,8 +15,7 @@ public class DbContextOptionFactory
     {
         return (builder) => builder.UseSqlServer(connectionString, opt =>
         {
-            // CHANGED:10 - too long time
-            opt.CommandTimeout((int)TimeSpan.FromMinutes(10).TotalSeconds);
+            opt.CommandTimeout((int)TimeSpan.FromMinutes(5).TotalSeconds);
         });
     }
 }

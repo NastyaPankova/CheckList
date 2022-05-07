@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace CheckListDbContext.Factories;
 
+
 public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<MainDbContext>
 {
     public MainDbContext CreateDbContext(string[] args)
