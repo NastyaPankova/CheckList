@@ -22,5 +22,5 @@ public class ApiSettings : IApiSettings
 
     public IGeneralSettings General => generalSettings ?? new GeneralSettings(source);
 
-    public IDbSettings Db => dbSettings ?? new DbSettings(source);// CHANGED: comment this line
+    public IDbSettings Db => dbSettings ?? new DbSettings(source);
 }

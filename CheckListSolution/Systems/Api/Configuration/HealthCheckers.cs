@@ -3,7 +3,7 @@
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using System.Reflection;
 
-public class HealthCheckers : IHealthCheck // CHANGED: ExampleHealthCheck -> HealthCheckers
+public class HealthCheckers : IHealthCheck 
 {
     public async Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default(CancellationToken))
     {

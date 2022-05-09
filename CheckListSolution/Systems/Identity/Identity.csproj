@@ -9,11 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Duende.IdentityServer" Version="6.0.4" />
+    <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="6.0.4" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\MainDbContext\CheckListDbContext.csproj" />
+    <ProjectReference Include="..\..\Services\Settings\Settings.csproj" />
   </ItemGroup>
 
 </Project>

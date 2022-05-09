@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Common;
 using DbEntities;
 using FluentValidation;
 
@@ -8,23 +9,23 @@ public class AddCheckListModel
 { 
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
+    public DateTime Date { get; set; }
     public int UserId { get; set; }
 
 }
 
 public class AddCheckListModelValidator : AbstractValidator<AddCheckListModel>
 {
-    // CHANGED: add variable for number of symbols
     public AddCheckListModelValidator()
     {
         RuleFor(x => x.Name)
-            .NotEmpty().WithMessage("Name is  required (no more then 50 symbols)")
-            .MaximumLength(50).WithMessage("Name is too long  (no more then 50 symbols)");
+            .NotEmpty().WithMessage($"Name is  required (no more then {CommonConstants.MaxNameListLength} symbols)")
+            .MaximumLength(CommonConstants.MaxNameListLength).WithMessage($"Name is too long  (no more then {CommonConstants.MaxNameListLength} symbols)");
 
         RuleFor(x => x.Description)
-            .MaximumLength(150).WithMessage("Description is too long (no more then 150 symbols)");
+            .MaximumLength(CommonConstants.MaxDescriptionListLength).WithMessage($"Description is too long (no more then {CommonConstants.MaxDescriptionListLength} symbols)");
 
-        RuleFor(x => x.UserId).NotEmpty().WithMessage("IdUser is required");
+        RuleFor(x => x.UserId).NotEmpty().WithMessage("UserId is required");
     }
 }
 

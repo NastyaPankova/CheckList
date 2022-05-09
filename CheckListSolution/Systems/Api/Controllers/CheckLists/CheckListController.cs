@@ -5,11 +5,13 @@ using AutoMapper;
 using CheckListService;
 using CheckListService.Models;
 using Common;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [Route("api/v{version:apiVersion}/checklists")]
 [ApiController]
 [ApiVersion("1.0")]
+[Authorize]
 
 public class CheckListController : ControllerBase
 {

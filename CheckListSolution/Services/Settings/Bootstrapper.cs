@@ -14,7 +14,7 @@ public static class Bootstrapper
         //services.AddSingleton<IRabbitMqSettings, RabbitMqSettings>();
         services.AddSingleton<IApiSettings, ApiSettings>();
         //services.AddSingleton<IWorkerSettings, WorkerSettings>();
-        //services.AddSingleton<IIS4Settings, IS4Settings>();
+        services.AddSingleton<IIS4Settings, IS4Settings>();
 
         return services;
     }

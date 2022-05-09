@@ -32,7 +32,7 @@ services.AddAppCors();
 
 services.AddAppServices();
 
-//services.AddAppAuth(settings);
+services.AddAppAuth(settings);
 
 services.AddControllers().AddValidator();
 
@@ -59,7 +59,7 @@ app.UseSerilogRequestLogging();
 
 app.UseAppSwagger();
 
-//app.UseAppAuth();
+app.UseAppAuth();
 
 app.MapRazorPages();
 

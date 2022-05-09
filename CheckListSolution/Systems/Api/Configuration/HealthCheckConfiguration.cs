@@ -16,8 +16,7 @@ public static class HealthCheckConfiguration
     public static IServiceCollection AddAppHealthCheck(this IServiceCollection services)
     {
         services.AddHealthChecks()
-            .AddCheck<HealthCheckers>("Api"); // CHANGED: DSRNetSchool.API -> Api
-                                              // CHANGED: ExampleHealthCheck -> HealthCheckers
+            .AddCheck<HealthCheckers>("Api"); 
 
         return services;
     }

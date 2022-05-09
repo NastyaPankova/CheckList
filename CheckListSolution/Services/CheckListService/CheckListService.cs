@@ -18,7 +18,8 @@ public class CheckListService : ICheckListService
     private readonly IModelValidator<UpdateCheckListModel> updateCheckListModelValidator;
     
 
-    public CheckListService(IDbContextFactory<MainDbContext> contextFactory, IMapper mapper,
+    public CheckListService(IDbContextFactory<MainDbContext> contextFactory, 
+                            IMapper mapper,
                             IModelValidator<AddCheckListModel> addCheckListModelValidator,
                             IModelValidator<ShareCheckListModel> shareCheckListModelValidator,
                             IModelValidator<UpdateCheckListModel> updateCheckListModelValidator        )
@@ -30,29 +31,34 @@ public class CheckListService : ICheckListService
         this.updateCheckListModelValidator = updateCheckListModelValidator;
     }
 
-    public async Task<IEnumerable<CheckListModel>> GetCheckLists(int offset = CommonConstants.Offset, 
+    public async Task<IEnumerable<CheckListModel>> GetCheckLists(Guid guid,
+                                                                 int offset = CommonConstants.Offset, 
                                                                  int limit = CommonConstants.LimitCheckLists)
+                                                                 
     {
         using var context = await contextFactory.CreateDbContextAsync();
 
-        //CHANGE: добавить автора списка
-
-        var checkLists = context.CheckLists.AsQueryable();
+        var checkLists =  ( from user in context.Users
+                            join checkListUser in context.CheckListUsers on user equals checkListUser.User
+                            join checkList in context.CheckLists on checkListUser.CheckList equals checkList
+                            where user.Uid == guid
+                            select checkList).AsQueryable();
 
         checkLists = checkLists
             .Skip(Math.Max(offset, 0))
             .Take(Math.Max(0, Math.Min(limit, 1000)));
 
+        
         var data = (await checkLists.ToListAsync()).Select(checkList => mapper.Map<CheckListModel>(checkList));
 
         return data;
     }
 
-    public async Task<CheckListModel> GetCheckList(int id)
+    public async Task<CheckListModel> GetCheckList(int checkListId)
     {
         using var context = await contextFactory.CreateDbContextAsync();
 
-        var checkList = await context.CheckLists.FirstOrDefaultAsync(x => x.Id.Equals(id));
+        var checkList = await context.CheckLists.FirstOrDefaultAsync(x => x.Id.Equals(checkListId));
 
         var data = mapper.Map<CheckListModel>(checkList);
 
@@ -64,6 +70,7 @@ public class CheckListService : ICheckListService
 
         using var context = await contextFactory.CreateDbContextAsync();
 
+        model.Date = DateTime.Now;
         var checkList = mapper.Map<CheckList>(model);
         await context.CheckLists.AddAsync(checkList);
         context.SaveChanges();

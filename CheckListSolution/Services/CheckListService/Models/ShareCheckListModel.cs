@@ -5,8 +5,8 @@ using FluentValidation;
 namespace CheckListService;
 public class ShareCheckListModel
 {
-    public int UserId { get; set; }
-    public int RecipientId { get; set; }
+    public Guid UserId { get; set; }
+    public Guid RecipientId { get; set; }
     public int CheckListId { get; set; }
 
 }
