@@ -18,6 +18,9 @@ public static class SwaggerConfiguration
 
     public static IServiceCollection AddAppSwagger(this IServiceCollection services, IApiSettings settings)
     {
+        if (!settings.General.SwaggerVisible)
+            return services;
+
         services.AddOptions<SwaggerGenOptions>()
             .Configure<IApiVersionDescriptionProvider>((options, provider) =>
             {
@@ -41,11 +44,9 @@ public static class SwaggerConfiguration
 
             options.OperationFilter<SwaggerDefaultValues>();
 
-            // CHANGED: comment lines below
             /*var xmlFile = "api.xml";
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
             options.IncludeXmlComments(xmlPath);*/
-
 
             options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
             {
@@ -58,9 +59,18 @@ public static class SwaggerConfiguration
                 {
                     Password = new OpenApiOAuthFlow
                     {
-                        TokenUrl = new Uri($"{settings.IdentityServer.Url}/connect/token")
+                        TokenUrl = new Uri($"{settings.IdentityServer.Url}/connect/token"),
+                    },
+                    ClientCredentials = new OpenApiOAuthFlow
+                    {
+                        TokenUrl = new Uri($"{settings.IdentityServer.Url}/connect/token"),
+                        Scopes= new Dictionary<string, string>
+                        {
+                            {"api", "Api" }
+                        }
                     }
-                }
+                },
+              
             });
 
             options.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -89,6 +99,9 @@ public static class SwaggerConfiguration
         var settings = app.Services.GetService<IApiSettings>();
         var provider = app.Services.GetService<IApiVersionDescriptionProvider>();
 
+        if (!settings.General.SwaggerVisible)
+            return;
+
         app.UseSwagger(options =>
         {
             options.RouteTemplate = "api/{documentname}/api.yaml";
@@ -106,10 +119,9 @@ public static class SwaggerConfiguration
                 options.DefaultModelsExpandDepth(-1);
                 options.OAuthAppName(AppTitle);
 
-                // CHANGED: comment lines below
                 // ToDo: Remove for production
-               // options.OAuthClientId(settings.IdentityServer.ClientId);
-                // options.OAuthClientSecret(settings.IdentityServer.ClientSecret);
+                options.OAuthClientId(settings.IdentityServer.ClientId);
+                options.OAuthClientSecret(settings.IdentityServer.ClientSecret);
             }
         );
     }

@@ -1,6 +1,5 @@
 ﻿namespace Api.Configuration;
 
-using DSRNetSchool.Common.Security;
 using CheckListDbContext.Context;
 using DbEntities;
 using Settings.Interface;
@@ -45,14 +44,11 @@ public static class AuthConfiguration
                     ClockSkew = TimeSpan.Zero
                 };
                 options.Audience = "api";
+                
             });
 
-        //CHANGED:
-       /* services.AddAuthorization(options =>
-        {
-            options.AddPolicy(AppScopes.BooksRead, policy => policy.RequireClaim("scope", AppScopes.BooksRead));
-            options.AddPolicy(AppScopes.BooksWrite, policy => policy.RequireClaim("scope", AppScopes.BooksWrite));
-        });*/
+        //CHANGED:!!!!!!!!!!!!!1
+        services.AddAuthorization();
 
         return services;
     }

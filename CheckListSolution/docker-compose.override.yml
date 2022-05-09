@@ -17,9 +17,9 @@ services:
       - CONNECTION_STRING_DATABASE=CheckListNet
       - CONNECTION_STRING_USER=sa
       - CONNECTION_STRING_PASSWORD=Passw(0)rd
-      - IDENTITY_SERVER_URL=localhost:20002
-      - IDENTITY_SERVER_CLIENT_ID=CheckListNet
-      - IDENTITY_SERVER_CLIENT_SECRET=123456
+      - IDENTITY_SERVER_URL=http://host.docker.internal:20001
+      - IDENTITY_SERVER_CLIENT_ID=frontend
+      - IDENTITY_SERVER_CLIENT_SECRET=secret
       - GENERAL_SWAGGER_VISIBLE=true
     ports:
       - "20000:80"

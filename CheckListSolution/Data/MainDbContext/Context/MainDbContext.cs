@@ -23,6 +23,8 @@ namespace CheckListDbContext.Context
             modelBuilder.Entity<Permision>().HasIndex(u => u.Name).IsUnique();
 
             modelBuilder.Entity<Status>().HasIndex(u => u.Name).IsUnique();
+
+            base.OnModelCreating(modelBuilder);
         }
 
     }

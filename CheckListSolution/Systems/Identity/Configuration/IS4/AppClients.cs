@@ -1,4 +1,6 @@
 ﻿namespace Identity.Configuration.IS4;
+
+using Duende.IdentityServer;
 using Duende.IdentityServer.Models;
 
 public static class AppClients
@@ -6,7 +8,7 @@ public static class AppClients
     public static IEnumerable<Client> Clients =>
         new List<Client>
         {
-            new Client
+             new Client
             {
                 ClientId = "swagger",
                 ClientSecrets =
@@ -18,8 +20,10 @@ public static class AppClients
 
                 AccessTokenLifetime = 3600, // 1 hour
 
-             }
-            ,
+                AllowedScopes = {
+                   "api"
+                }
+            },
             new Client
             {
                 ClientId = "frontend",
@@ -28,11 +32,13 @@ public static class AppClients
                     new Secret("secret".Sha256())
                 },
 
-                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
-
+                AllowedGrantTypes = GrantTypes.ClientCredentials,
                 AllowOfflineAccess = true,
                 AccessTokenType = AccessTokenType.Jwt,
-
+                AllowedScopes =
+                    {
+                            "api"
+                    },
                 AccessTokenLifetime = 3600, // 1 hour
 
                 RefreshTokenUsage = TokenUsage.OneTimeOnly,

@@ -4,6 +4,7 @@ using CheckListDbContext.Context;
 using DbEntities;
 using Identity.Configuration.IS4;
 using Microsoft.AspNetCore.Identity;
+using Duende.IdentityServer.Models;
 
 public static class IS4Configuration
 {
@@ -25,6 +26,7 @@ public static class IS4Configuration
         services
             .AddIdentityServer()
             .AddAspNetIdentity<User>()
+            .AddInMemoryApiScopes(new [] {new ApiScope("api")})
             .AddInMemoryClients(AppClients.Clients)
             .AddInMemoryApiResources(AppResources.Resources)
             .AddInMemoryIdentityResources(AppIdentityResources.Resources)

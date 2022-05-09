@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 [Route("api/v{version:apiVersion}/checklists")]
 [ApiController]
 [ApiVersion("1.0")]
-[Authorize]
+[Authorize("api")]
 
 public class CheckListController : ControllerBase
 {
@@ -26,7 +26,7 @@ public class CheckListController : ControllerBase
         this.mapper = mapper;
     }
 
-    [HttpPost("")]
+    /*[HttpPost("")]
     public async Task<CheckListResponse> AddCheckList ([FromBody] AddCheckListRequest request)
     {
         var model = mapper.Map<AddCheckListModel>(request);
@@ -83,5 +83,5 @@ public class CheckListController : ControllerBase
         await bookService.DeleteBook(id);
 
         return Ok();
-    }
+    }*/
 }
