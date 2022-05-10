@@ -20,9 +20,7 @@ public static class AppClients
 
                 AccessTokenLifetime = 3600, // 1 hour
 
-                AllowedScopes = {
-                   "api"
-                }
+                AllowedScopes = {"api"}
             },
             new Client
             {
@@ -32,19 +30,17 @@ public static class AppClients
                     new Secret("secret".Sha256())
                 },
 
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 AllowOfflineAccess = true,
                 AccessTokenType = AccessTokenType.Jwt,
-                AllowedScopes =
-                    {
-                            "api"
-                    },
                 AccessTokenLifetime = 3600, // 1 hour
 
                 RefreshTokenUsage = TokenUsage.OneTimeOnly,
                 RefreshTokenExpiration = TokenExpiration.Sliding,
                 AbsoluteRefreshTokenLifetime = 2592000, // 30 days
                 SlidingRefreshTokenLifetime = 1296000, // 15 days
+
+                AllowedScopes = {"api"},
 
              }
         };
