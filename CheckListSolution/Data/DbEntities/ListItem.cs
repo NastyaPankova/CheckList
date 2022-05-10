@@ -8,7 +8,7 @@ public class ListItem : BaseEntity
     [Required]
     [MaxLength(CommonConstants.MaxContentItemLength)]
     public string Content { get; set; }
-    public DateTime? DateTime { get; set; }
+    public DateTime? Date { get; set; }
 
     [Column(TypeName = "money")]
     public decimal? Cost { get; set; }

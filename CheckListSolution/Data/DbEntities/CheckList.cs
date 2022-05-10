@@ -13,7 +13,7 @@ public class CheckList : BaseEntity
     public string? Description { get; set; }
 
     [Required]
-    public DateTime DateTime { get; set; }
+    public DateTime Date { get; set; }
     public virtual ICollection<CheckListUser> CheckListUsers { get; set; }
     public virtual ICollection<ListItem> ListItems { get; set; }
 }

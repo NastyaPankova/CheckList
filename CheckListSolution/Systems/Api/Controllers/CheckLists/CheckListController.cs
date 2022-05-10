@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 [Route("api/v{version:apiVersion}/checklists")]
 [ApiController]
 [ApiVersion("1.0")]
-[Authorize("api")]
+//[Authorize("api")]
 
 public class CheckListController : ControllerBase
 {
@@ -34,18 +34,43 @@ public class CheckListController : ControllerBase
         var response = mapper.Map<CheckListResponse>(checkList);
         return response;
 
-    }
-    [HttpGet("")]
-    public async Task<IEnumerable<CheckListResponse>> GetBooks([FromQuery] int offset = CommonConstants.Offset, 
-                                                               [FromQuery] int limit = CommonConstants.LimitCheckLists)
+    }*/
+    [HttpGet("{UserId}")]
+    public async Task<IEnumerable<GetCheckListResponse>> GetAllCheckLists(Guid UserId)
     {
-        var books = await checkListService.(offset, limit);
-        var response = mapper.Map<IEnumerable<BookResponse>>(books);
-
+        var data = await checkListService.GetCheckLists(UserId);
+        var response = new List<GetCheckListResponse>();
+        foreach (var d in data)
+        {
+            var getAllCheckListsResponse = new GetCheckListResponse()
+            {
+                Id = d.Id,
+                Name = d.Name,
+                Description = d.Description,
+                Date = d.Date,
+                Permision = d.Permision
+            };
+            response.Add(getAllCheckListsResponse);
+        }
         return response;
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("({checkListId}")]
+    public async Task<GetCheckListByIdResponse> GetCheckListById(Guid UserId, int checkListId)
+    {
+        var data = await checkListService.GetCheckListById(UserId, checkListId);
+        var response = new GetCheckListByIdResponse();
+            response.Id = data.Id;
+            response.Name = data.Name;
+            response.Description = data.Description;
+            response.Date = data.Date;
+            response.Permision = data.Permision;
+            response.Owner = data.Owner;
+        return response;
+    }
+
+
+    /*[HttpGet("{id}")]
     [Authorize(AppScopes.BooksRead)]
     public async Task<BookResponse> GetBookById([FromRoute] int id)
     {
