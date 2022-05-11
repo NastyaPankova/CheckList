@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbEntities;
+[Table("CheckList_User")]
 public class CheckListUser
 {
     [Required]

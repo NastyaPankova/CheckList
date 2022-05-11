@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbEntities;
+[Table("Permisions")]
 public class Permision : BaseEntity
 
 {

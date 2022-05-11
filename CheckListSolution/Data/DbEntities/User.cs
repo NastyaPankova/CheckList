@@ -1,13 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbEntities;
-[Index("Uid", IsUnique = true)]
+[Table("Users")]
 public class User : IdentityUser<Guid>
 {
-    [Required]
-    public virtual Guid Uid { get; set; } = Guid.NewGuid();
     [Required]
     public string Name { get; set; }
     public virtual ICollection<CheckListUser> CheckListUsers { get; set; }

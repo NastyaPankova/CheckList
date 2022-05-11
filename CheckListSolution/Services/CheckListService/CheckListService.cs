@@ -65,6 +65,41 @@ public class CheckListService : ICheckListService
         return allLists.AsQueryable();
     }
 
+    public List<ListItemModel> GetCheckListItems(int CheckListId)
+    {
+        using var context = contextFactory.CreateDbContext();
+
+        var items = from listItem in context.ListItems
+                    join status in context.Statuses on listItem.Status equals status
+                    where listItem.CheckList.Id == CheckListId
+                    select new
+                    {
+                        listItem = listItem,
+                        status = status.Name
+                    };
+
+       // var res = context.ListItems.Include(s => s.Status).Where(item => item.CheckList.Id == CheckListId).ToList();
+
+        // res[0].Status.Name
+
+
+        var listItems = new List<ListItemModel>();
+        foreach (var i in items)
+        {
+            var getListItemModel = new ListItemModel()
+            {
+                Id = i.listItem.Id,
+                Content = i.listItem.Content,
+                Date = i.listItem.Date,
+                Cost = i.listItem.Cost,
+                Status = i.status
+            };
+            listItems.Add(getListItemModel);
+        }
+
+        return listItems;
+    }
+
     public async Task<GetCheckListByIdModel> GetCheckListById(Guid UserId, int CheckListId)
 
     {
@@ -91,18 +126,26 @@ public class CheckListService : ICheckListService
                                    Date = checkList.Date,
                                    Permision = permision.Name
                               }).FirstOrDefaultAsync();
+
         var owner = await (from user in context.Users
                           join checkListUser in context.CheckListUsers on user equals checkListUser.User
                           join checkList in context.CheckLists on checkListUser.CheckList equals checkList
                           join permision in context.Permisions on checkListUser.Permision equals permision
                           where (checkList.Id == CheckListId) & (permision.Name.ToLower().Equals("creator") )
                           select user.Name).FirstOrDefaultAsync();
+
+        var items = from listItem in context.ListItems
+                    join status in context.Statuses on listItem.Status equals status
+                    where listItem.CheckList.Id == CheckListId
+                    select listItem;
+
         getCheckListByIdModel.Id = data.Id;
         getCheckListByIdModel.Name = data.Name;
         getCheckListByIdModel.Description = data.Description;
         getCheckListByIdModel.Date = data.Date;
         getCheckListByIdModel.Permision = data.Permision;
         getCheckListByIdModel.Owner = owner;
+        getCheckListByIdModel.Items = GetCheckListItems(CheckListId);
 
         return getCheckListByIdModel;
     }

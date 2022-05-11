@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CheckListDbContext.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    [Migration("20220510175341_init_00")]
+    [Migration("20220511051600_init_00")]
     partial class init_00
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,7 +66,7 @@ namespace CheckListDbContext.Migrations
 
                     b.HasIndex("PermisionId");
 
-                    b.ToTable("CheckListUsers");
+                    b.ToTable("CheckList_User");
                 });
 
             modelBuilder.Entity("DbEntities.ListItem", b =>
@@ -196,9 +196,6 @@ namespace CheckListDbContext.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("Uid")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -212,9 +209,6 @@ namespace CheckListDbContext.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.HasIndex("Uid")
-                        .IsUnique();
 
                     b.ToTable("AspNetUsers", (string)null);
                 });

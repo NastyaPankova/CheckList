@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbEntities;
+[Table("Statuses")]
 public class Status : BaseEntity
 
 {

@@ -44,7 +44,7 @@ namespace CheckListDbContext.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CheckLists", (string)null);
+                    b.ToTable("CheckLists");
                 });
 
             modelBuilder.Entity("DbEntities.CheckListUser", b =>
@@ -64,7 +64,7 @@ namespace CheckListDbContext.Migrations
 
                     b.HasIndex("PermisionId");
 
-                    b.ToTable("CheckListUsers", (string)null);
+                    b.ToTable("CheckList_User");
                 });
 
             modelBuilder.Entity("DbEntities.ListItem", b =>
@@ -98,7 +98,7 @@ namespace CheckListDbContext.Migrations
 
                     b.HasIndex("StatusId");
 
-                    b.ToTable("ListItems", (string)null);
+                    b.ToTable("ListItems");
                 });
 
             modelBuilder.Entity("DbEntities.Permision", b =>
@@ -118,7 +118,7 @@ namespace CheckListDbContext.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("Permisions", (string)null);
+                    b.ToTable("Permisions");
                 });
 
             modelBuilder.Entity("DbEntities.Status", b =>
@@ -138,7 +138,7 @@ namespace CheckListDbContext.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("Statuses", (string)null);
+                    b.ToTable("Statuses");
                 });
 
             modelBuilder.Entity("DbEntities.User", b =>
@@ -194,9 +194,6 @@ namespace CheckListDbContext.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("Uid")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -210,9 +207,6 @@ namespace CheckListDbContext.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.HasIndex("Uid")
-                        .IsUnique();
 
                     b.ToTable("AspNetUsers", (string)null);
                 });

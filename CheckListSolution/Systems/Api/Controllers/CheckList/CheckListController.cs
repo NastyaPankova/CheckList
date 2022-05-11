@@ -59,14 +59,18 @@ public class CheckListController : ControllerBase
     public async Task<GetCheckListByIdResponse> GetCheckListById(Guid UserId, int checkListId)
     {
         var data = await checkListService.GetCheckListById(UserId, checkListId);
-        var response = new GetCheckListByIdResponse();
-            response.Id = data.Id;
-            response.Name = data.Name;
-            response.Description = data.Description;
-            response.Date = data.Date;
-            response.Permision = data.Permision;
-            response.Owner = data.Owner;
-        return response;
+
+      /*  data.Items.Select(d => new ListItemResponse
+        {
+          Id = d.Id,
+        Content = d.Content,
+        Date = d.Date,
+        Cost = d.Cost,
+        Status = d.Status,
+    } ).ToList();*/
+
+        
+        return data.ConvertToCheckListByIdResponse();
     }
 
 

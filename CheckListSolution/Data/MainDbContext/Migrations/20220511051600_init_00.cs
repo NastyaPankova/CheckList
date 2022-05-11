@@ -28,7 +28,6 @@ namespace CheckListDbContext.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Uid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -198,7 +197,7 @@ namespace CheckListDbContext.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CheckListUsers",
+                name: "CheckList_User",
                 columns: table => new
                 {
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -207,21 +206,21 @@ namespace CheckListDbContext.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CheckListUsers", x => new { x.UserId, x.CheckListId });
+                    table.PrimaryKey("PK_CheckList_User", x => new { x.UserId, x.CheckListId });
                     table.ForeignKey(
-                        name: "FK_CheckListUsers_AspNetUsers_UserId",
+                        name: "FK_CheckList_User_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CheckListUsers_CheckLists_CheckListId",
+                        name: "FK_CheckList_User_CheckLists_CheckListId",
                         column: x => x.CheckListId,
                         principalTable: "CheckLists",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CheckListUsers_Permisions_PermisionId",
+                        name: "FK_CheckList_User_Permisions_PermisionId",
                         column: x => x.PermisionId,
                         principalTable: "Permisions",
                         principalColumn: "Id",
@@ -290,12 +289,6 @@ namespace CheckListDbContext.Migrations
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_Uid",
-                table: "AspNetUsers",
-                column: "Uid",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
@@ -303,13 +296,13 @@ namespace CheckListDbContext.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CheckListUsers_CheckListId",
-                table: "CheckListUsers",
+                name: "IX_CheckList_User_CheckListId",
+                table: "CheckList_User",
                 column: "CheckListId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CheckListUsers_PermisionId",
-                table: "CheckListUsers",
+                name: "IX_CheckList_User_PermisionId",
+                table: "CheckList_User",
                 column: "PermisionId");
 
             migrationBuilder.CreateIndex(
@@ -353,7 +346,7 @@ namespace CheckListDbContext.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "CheckListUsers");
+                name: "CheckList_User");
 
             migrationBuilder.DropTable(
                 name: "ListItems");

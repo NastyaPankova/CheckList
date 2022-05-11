@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Common;
 
 namespace DbEntities;
-
+[Table("CheckLists")]
 public class CheckList : BaseEntity
 {
     [Required]

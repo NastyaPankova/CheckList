@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbEntities;
+[Table("ListItems")]
 public class ListItem : BaseEntity
 {
     [Required]

@@ -17,6 +17,12 @@ public static class DbSeed
         var reader = new Permision() { Name = "Reader" };
         context.Permisions.Add(reader);
 
+        var marked = new Status() { Name = "Marked" };
+        context.Statuses.Add(marked);
+
+        var unmarked = new Status() { Name = "Unmarked" };
+        context.Statuses.Add(unmarked);
+
         var test_user_1 = new User { Name = "Alex" };
         context.Users.Add(test_user_1);
 
@@ -61,6 +67,12 @@ public static class DbSeed
             Permision = reader
         };
         context.CheckListUsers.Add(checkListUser_3);
+
+        var listItem_1 = new ListItem { Content = "New Item in list", Status = unmarked, CheckList = checkList_1};
+        context.ListItems.Add(listItem_1);
+
+        var listItem_2 = new ListItem { Content = "Marked Item in list", Status = marked, CheckList = checkList_1 };
+        context.ListItems.Add(listItem_2);
 
         context.SaveChanges();
     }

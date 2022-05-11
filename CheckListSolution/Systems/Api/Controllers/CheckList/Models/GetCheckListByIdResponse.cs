@@ -10,5 +10,6 @@ public class GetCheckListByIdResponse
     public DateTime? Date { get; set; }
     public string? Permision { get; set; }
     public string? Owner { get; set; }
+    public List<ListItemResponse>? Items { get; set; }
 
 }
