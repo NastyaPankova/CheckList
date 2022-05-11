@@ -17,7 +17,21 @@ public static class CheckListControllerResponseMapper
 
         return item;
     }
-
+    public static AddItemModel ConvertToAddItemModel(this AddItemRequest request)
+    {
+        var item = new AddItemModel();
+        item.Content = request.Content;
+        item.Cost = request.Cost;
+        return item;
+    }
+    public static UpdateItemModel ConvertToUpdateItemModel(this UpdateItemRequest request, int ListItemId)
+    {
+        var item = new UpdateItemModel();
+        item.ListItemId = ListItemId;
+        item.Content = request.Content;
+        item.Cost = request.Cost;
+        return item;
+    }
     public static CheckListByIdResponse ConvertToCheckListByIdResponse(this CheckListByIdModel model)
     {
         var items = model.Items.Select(d => d.ConvertToListItemResponse()).ToList();      
@@ -51,6 +65,26 @@ public static class CheckListControllerResponseMapper
         model.Name = request.Name;
         model.Description = request.Description;
         model.UserId = UserId;
+
+        return model;
+    }
+    public static ShareCheckListModel ConvertToShareCheckListModel(this ShareCheckListRequest request, Guid UserId)
+    {
+        var model = new ShareCheckListModel();
+        model.CheckListId = request.CheckListId;
+        model.Email =   request.Email;
+        model.UserId = UserId;
+
+        return model;
+    }
+
+    public static UpdateCheckListModel ConvertToUpdateCheckListModel(this UpdateCheckListRequest request, Guid UserId)
+    {
+        var model = new UpdateCheckListModel();
+        model.Name = request.Name;
+        model.Description = request.Description;
+        model.UserId = UserId;
+        model.CheckListId = request.CheckListId;
 
         return model;
     }

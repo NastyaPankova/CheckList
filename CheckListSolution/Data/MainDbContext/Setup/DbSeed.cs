@@ -24,16 +24,16 @@ public static class DbSeed
         var unmarked = new Status() { Name = CommonConstants.Unmarked };
         context.Statuses.Add(unmarked);
 
-        var test_user_1 = new User { Name = "Alex" };
+        var test_user_1 = new User { Name = "Alex", Email = "Alex@com" };
         context.Users.Add(test_user_1);
 
-        var test_user_2 = new User { Name = "Oleg" };
+        var test_user_2 = new User { Name = "Oleg", Email = "Oleg@com" };
         context.Users.Add(test_user_2);
 
-        var test_user_3 = new User { Name = "Tommy" };
+        var test_user_3 = new User { Name = "Tommy", Email = "Tommy@com" };
         context.Users.Add(test_user_3);
 
-        var test_user_4 = new User { Name = "Mark" };
+        var test_user_4 = new User { Name = "Mark", Email = "Mark@com"};
         context.Users.Add(test_user_4);
 
         var checkList_1 = new CheckList { Name = "List 1", Description = "New test Check List",  Date = DateTime.Now};

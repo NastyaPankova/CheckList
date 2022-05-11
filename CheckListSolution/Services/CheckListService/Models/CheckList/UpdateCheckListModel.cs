@@ -3,7 +3,7 @@ using Common;
 using DbEntities;
 using FluentValidation;
 
-namespace CheckListService;
+namespace CheckListService.Models;
 public class UpdateCheckListModel
 {
     public string Name { get; set; } = string.Empty;
@@ -29,12 +29,5 @@ public class UpdateCheckListModelValidator : AbstractValidator<UpdateCheckListMo
         RuleFor(x => x.CheckListId).NotEmpty().WithMessage("ListId is  required");
 
         RuleFor(x => x.UserId).NotEmpty().WithMessage("UserId is  required");
-    }
-}
-public class UpdateCheckListModelProfile : Profile
-{
-    public UpdateCheckListModelProfile()
-    {
-        CreateMap<UpdateCheckListModelProfile, CheckList>();
     }
 }

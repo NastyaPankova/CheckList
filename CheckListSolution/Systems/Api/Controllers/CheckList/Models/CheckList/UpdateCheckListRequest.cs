@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using CheckListService;
-using Common;
+﻿using Common;
 using FluentValidation;
 
 namespace Api.Controllers.CheckList.Models;
@@ -9,8 +7,6 @@ public class UpdateCheckListRequest
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
     public int CheckListId { get; set; }
-    public int UserId { get; set; }
-
 }
 
 public class UpdateCheckListValidator : AbstractValidator<UpdateCheckListRequest>
@@ -27,14 +23,6 @@ public class UpdateCheckListValidator : AbstractValidator<UpdateCheckListRequest
             .WithMessage($"Description is too long (no more then {CommonConstants.MaxDescriptionListLength} symbols)");
 
         RuleFor(x => x.CheckListId).NotEmpty().WithMessage("ListId is  required");
+    }
+}
 
-        RuleFor(x => x.UserId).NotEmpty().WithMessage("UserId is  required");
-    }
-}
-public class UpdateCheckListProfile : Profile
-{
-    public UpdateCheckListProfile()
-    {
-        CreateMap<UpdateCheckListRequest, UpdateCheckListModel>();
-    }
-}
