@@ -6,7 +6,7 @@ public static class MiddlewaresConfiguration
 {
     public static IApplicationBuilder UseAppMiddlewares(this IApplicationBuilder app)
     {
-        // CHANGED: если несколько Middleware, то все подкючаются здесь
+        // ToDo: connection for all Middleware using
         return app.UseMiddleware<ExceptionsMiddleware>();
     }
 }

@@ -8,7 +8,7 @@ public static class ErrorResponseExtensions
     {
         var res = new ErrorResponse()
         {
-            // CHANGE: create logic for error's code
+            // ToDo: create logic for error's code (can't create)
             ErrorCode = -1,
             Message = data.Message
         };

@@ -1,11 +1,7 @@
 ﻿namespace Api.Controllers.CheckList;
 
 using Api.Controllers.CheckList.Models;
-using AutoMapper;
 using CheckListService;
-using CheckListService.Models;
-using Common;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [Route("api/v{version:apiVersion}/checklists")]
@@ -17,100 +13,68 @@ public class CheckListController : ControllerBase
 {
     private readonly ILogger<CheckListController> logger;
     private readonly ICheckListService checkListService;
-    private readonly IMapper mapper;
 
-    public CheckListController(IMapper mapper, ILogger<CheckListController> logger, ICheckListService checkListService)
+    public CheckListController(ILogger<CheckListController> logger, ICheckListService checkListService)
     {
         this.logger = logger;
         this.checkListService = checkListService;
-        this.mapper = mapper;
     }
 
-    /*[HttpPost("")]
-    public async Task<CheckListResponse> AddCheckList ([FromBody] AddCheckListRequest request)
-    {
-        var model = mapper.Map<AddCheckListModel>(request);
-        var checkList = await checkListService.AddCheckList(model);
-        var response = mapper.Map<CheckListResponse>(checkList);
-        return response;
-
-    }*/
-    [HttpGet("{UserId}")]
-    public async Task<IEnumerable<GetCheckListResponse>> GetAllCheckLists(Guid UserId)
+    [HttpGet("")]
+    public async Task<IEnumerable<CheckListResponse>> GetAllCheckLists([FromHeader] Guid UserId)
     {
         var data = await checkListService.GetCheckLists(UserId);
-        var response = new List<GetCheckListResponse>();
-        foreach (var d in data)
-        {
-            var getAllCheckListsResponse = new GetCheckListResponse()
-            {
-                Id = d.Id,
-                Name = d.Name,
-                Description = d.Description,
-                Date = d.Date,
-                Permision = d.Permision
-            };
-            response.Add(getAllCheckListsResponse);
-        }
-        return response;
+
+        return data.Select(d => d.ConvertToCheckListResponse()).ToList();
     }
 
-    [HttpGet("({checkListId}")]
-    public async Task<GetCheckListByIdResponse> GetCheckListById(Guid UserId, int checkListId)
+    [HttpGet("({CheckListId}")]
+    public async Task<CheckListByIdResponse> GetCheckListById([FromHeader] Guid UserId, int CheckListId)
     {
-        var data = await checkListService.GetCheckListById(UserId, checkListId);
-
-      /*  data.Items.Select(d => new ListItemResponse
-        {
-          Id = d.Id,
-        Content = d.Content,
-        Date = d.Date,
-        Cost = d.Cost,
-        Status = d.Status,
-    } ).ToList();*/
-
+        var data = await checkListService.GetCheckListById(UserId, CheckListId);
         
         return data.ConvertToCheckListByIdResponse();
     }
 
-
-    /*[HttpGet("{id}")]
-    [Authorize(AppScopes.BooksRead)]
-    public async Task<BookResponse> GetBookById([FromRoute] int id)
-    {
-        var book = await bookService.GetBook(id);
-        var response = mapper.Map<BookResponse>(book);
-
-        return response;
-    }
-
     [HttpPost("")]
-    [Authorize(AppScopes.BooksWrite)]
-    public async Task<BookResponse> AddBook([FromBody] AddBookRequest request)
+    public async Task<OkResult> AddCheckList ([FromHeader] Guid UserId, [FromBody] AddCheckListRequest request)
     {
-        var model = mapper.Map<AddBookModel>(request);
-        var book = await bookService.AddBook(model);
-        var response = mapper.Map<BookResponse>(book);
-
-        return response;
-    }
-
-    [HttpPut("{id}")]
-    [Authorize(AppScopes.BooksWrite)]
-    public async Task<IActionResult> UpdateBook([FromRoute] int id, [FromBody] UpdateBookRequest request)
-    {
-        var model = mapper.Map<UpdateBookModel>(request);
-        await bookService.UpdateBook(id, model);
+        var model = request.ConvertToAddCheckListModel(UserId);
+        await checkListService.AddCheckList(UserId, model);
 
         return Ok();
+
     }
 
-    [HttpDelete("{id}")]
-    [Authorize(AppScopes.BooksWrite)]
-    public async Task<IActionResult> DeleteBook([FromRoute] int id)
-    {
-        await bookService.DeleteBook(id);
+    /*
 
-        return Ok();
-    }*/
+        [HttpPost("")]
+        [Authorize(AppScopes.BooksWrite)]
+        public async Task<BookResponse> AddBook([FromBody] AddBookRequest request)
+        {
+            var model = mapper.Map<AddBookModel>(request);
+            var book = await bookService.AddBook(model);
+            var response = mapper.Map<BookResponse>(book);
+
+            return response;
+        }
+
+        [HttpPut("{id}")]
+        [Authorize(AppScopes.BooksWrite)]
+        public async Task<IActionResult> UpdateBook([FromRoute] int id, [FromBody] UpdateBookRequest request)
+        {
+            var model = mapper.Map<UpdateBookModel>(request);
+            await bookService.UpdateBook(id, model);
+
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize(AppScopes.BooksWrite)]
+        public async Task<IActionResult> DeleteBook([FromRoute] int id)
+        {
+            await bookService.DeleteBook(id);
+
+            return Ok();
+        }*/
 }

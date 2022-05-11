@@ -31,76 +31,46 @@ public class CheckListService : ICheckListService
         this.updateCheckListModelValidator = updateCheckListModelValidator;
     }
 
-    public async Task<IEnumerable<GetCheckListModel>> GetCheckLists(Guid UserId)
+    public async Task<IEnumerable<CheckListModel>> GetCheckLists(Guid UserId)
                                                                  
     {
         using var context = await contextFactory.CreateDbContextAsync();
-        var data = from user in context.Users
-                join checkListUser in context.CheckListUsers on user equals checkListUser.User
-                join checkList in context.CheckLists on checkListUser.CheckList equals checkList
-                join permision in context.Permisions on checkListUser.Permision equals permision
-                where user.Id == UserId
-                select new 
-                {
-                     Id = checkList.Id,
-                     Name = checkList.Name,
-                     Description = checkList.Description,
-                     Date = checkList.Date,
-                     Permision = permision.Name
-                 };
-        var allLists = new List<GetCheckListModel>();
-        foreach (var d in data)
-        {
-            var getCheckListModel = new GetCheckListModel()
-            {
-                Id = d.Id,
-                Name = d.Name,
-                Description = d.Description,
-                Date = d.Date,
-                Permision = d.Permision
-            };
-            allLists.Add(getCheckListModel);
-        }
-        
-        return allLists.AsQueryable();
+
+        var data = context.CheckListUsers
+                   .Include(k => k.CheckList).Include(k => k.User).Include(k => k.Permision)
+                   .Where(w => w.UserId == UserId)
+                   .Select(s => new CheckListQuery
+                   {
+                       Id = s.CheckListId,
+                       Name = s.CheckList.Name,
+                       Description = s.CheckList.Description,
+                       Date = s.CheckList.Date,
+                       Permision = s.Permision.Name
+                   });
+
+        return data.Select(d => d.ConvertToCheckListModel()).ToList().AsQueryable();
     }
 
     public List<ListItemModel> GetCheckListItems(int CheckListId)
     {
         using var context = contextFactory.CreateDbContext();
 
-        var items = from listItem in context.ListItems
-                    join status in context.Statuses on listItem.Status equals status
-                    where listItem.CheckList.Id == CheckListId
-                    select new
-                    {
-                        listItem = listItem,
-                        status = status.Name
-                    };
+        var items = context.ListItems
+                    .Include(s => s.Status)
+                     .Where(item => item.CheckList.Id == CheckListId)
+                     .Select (i => new ListItemQuery
+                     {
+                         Id = i.Id,
+                         Content = i.Content,
+                         Date = i.Date,
+                         Cost = i.Cost,
+                         Status = i.Status.Name
+                     });
 
-       // var res = context.ListItems.Include(s => s.Status).Where(item => item.CheckList.Id == CheckListId).ToList();
-
-        // res[0].Status.Name
-
-
-        var listItems = new List<ListItemModel>();
-        foreach (var i in items)
-        {
-            var getListItemModel = new ListItemModel()
-            {
-                Id = i.listItem.Id,
-                Content = i.listItem.Content,
-                Date = i.listItem.Date,
-                Cost = i.listItem.Cost,
-                Status = i.status
-            };
-            listItems.Add(getListItemModel);
-        }
-
-        return listItems;
+        return items.Select(d => d.ConvertToListItemModel()).ToList();
     }
 
-    public async Task<GetCheckListByIdModel> GetCheckListById(Guid UserId, int CheckListId)
+    public async Task<CheckListByIdModel> GetCheckListById(Guid UserId, int CheckListId)
 
     {
         using var context = await contextFactory.CreateDbContextAsync();
@@ -112,109 +82,105 @@ public class CheckListService : ICheckListService
                        .FirstOrDefaultAsync(x => (x.CheckListId.Equals(CheckListId)) & (x.UserId.Equals(UserId)));
         ProcessException.ThrowIf(() => isAccess is null, "No access for this user");
 
-        var getCheckListByIdModel = new GetCheckListByIdModel();
-        var data = await     (from user in context.Users
-                              join checkListUser in context.CheckListUsers on user equals checkListUser.User
-                              join checkList in context.CheckLists on checkListUser.CheckList equals checkList
-                              join permision in context.Permisions on checkListUser.Permision equals permision
-                              where (checkList.Id == CheckListId) & (user.Id == UserId)
-                              select new
-                              {
-                                   Id = checkList.Id,
-                                   Name = checkList.Name,
-                                   Description = checkList.Description,
-                                   Date = checkList.Date,
-                                   Permision = permision.Name
-                              }).FirstOrDefaultAsync();
+        var data = await  context.CheckListUsers
+                  .Include(k => k.CheckList).Include(k => k.User).Include(k => k.Permision)
+                  .Where(w => (w.UserId == UserId) & (w.CheckList.Id == CheckListId))
+                  .Select(s => new CheckListQuery
+                  {
+                      Id = s.CheckListId,
+                      Name = s.CheckList.Name,
+                      Description = s.CheckList.Description,
+                      Date = s.CheckList.Date,
+                      Permision = s.Permision.Name
+                  }).FirstOrDefaultAsync();
 
-        var owner = await (from user in context.Users
-                          join checkListUser in context.CheckListUsers on user equals checkListUser.User
-                          join checkList in context.CheckLists on checkListUser.CheckList equals checkList
-                          join permision in context.Permisions on checkListUser.Permision equals permision
-                          where (checkList.Id == CheckListId) & (permision.Name.ToLower().Equals("creator") )
-                          select user.Name).FirstOrDefaultAsync();
+        var owner = await context.CheckListUsers
+                          .Include(k => k.CheckList).Include(k => k.User).Include(k => k.Permision)
+                          .Where(w => (w.Permision.Name.ToLower().Equals(CommonConstants.Creator.ToLower())) & (w.CheckList.Id == CheckListId))
+                          .Select(s => s.User.Name).FirstOrDefaultAsync();
+                         
 
-        var items = from listItem in context.ListItems
-                    join status in context.Statuses on listItem.Status equals status
-                    where listItem.CheckList.Id == CheckListId
-                    select listItem;
+        var items = GetCheckListItems(CheckListId);
 
-        getCheckListByIdModel.Id = data.Id;
-        getCheckListByIdModel.Name = data.Name;
-        getCheckListByIdModel.Description = data.Description;
-        getCheckListByIdModel.Date = data.Date;
-        getCheckListByIdModel.Permision = data.Permision;
-        getCheckListByIdModel.Owner = owner;
-        getCheckListByIdModel.Items = GetCheckListItems(CheckListId);
-
-        return getCheckListByIdModel;
+        return data.ConvertToCheckListByIdModel(owner, items);
     }
 
-   /* public async Task<CheckListModel> GetCheckList(int checkListId)
-    {
-        using var context = await contextFactory.CreateDbContextAsync();
-
-        var checkList = await context.CheckLists.FirstOrDefaultAsync(x => x.Id.Equals(checkListId));
-
-        var data = mapper.Map<CheckListModel>(checkList);
-
-        return data;
-    }
-    public async Task<CheckListModel> AddCheckList(AddCheckListModel model)
+    public async Task AddCheckList(Guid UserId, AddCheckListModel model)
     {
         addCheckListModelValidator.Check(model);
 
         using var context = await contextFactory.CreateDbContextAsync();
 
-        model.Date = DateTime.Now;
-        var checkList = mapper.Map<CheckList>(model);
-        await context.CheckLists.AddAsync(checkList);
-        context.SaveChanges();
+        var isGuid = await context.Users.FirstOrDefaultAsync(x => x.Id.Equals(UserId));
+        ProcessException.ThrowIf(() => isGuid is null, "No such User");
 
-        return mapper.Map<CheckListModel>(checkList);
-    }
+        var newCheckList = model.ConvertToCheckList();
+        var creator = await context.Users.FirstOrDefaultAsync(x => x.Id.Equals(UserId));
+        var permision = await context.Permisions.FirstOrDefaultAsync(x => x.Name.ToLower().Equals(CommonConstants.Creator.ToLower()));
+        var checkListUser = new CheckListUser { CheckList = newCheckList, User = creator, Permision = permision};
 
-    public async Task UpdateCheckList(UpdateCheckListModel model)
-    {
-        updateCheckListModelValidator.Check(model);
-
-        using var context = await contextFactory.CreateDbContextAsync();
-
-        var checkList = await context.CheckLists.FirstOrDefaultAsync(x => x.Id.Equals(model.CheckListId));
-
-        ProcessException.ThrowIf(() => checkList is null, $"CheckList (id: {model.CheckListId} was not found");
-
-        checkList = mapper.Map(model, checkList);
-
-        context.CheckLists.Update(checkList);
+        await context.CheckLists.AddAsync(newCheckList);
+        await context.CheckListUsers.AddAsync(checkListUser);
+       
         context.SaveChanges();
     }
 
-    public async Task ShareCheckList(ShareCheckListModel model) //CHANGE: СДЕЛАТЬ!
-    {
-       /* shareCheckListModelValidator.Check(model);
+   /*
+     public async Task<CheckListModel> AddCheckList(AddCheckListModel model)
+     {
+         addCheckListModelValidator.Check(model);
 
-        using var context = await contextFactory.CreateDbContextAsync();
+         using var context = await contextFactory.CreateDbContextAsync();
 
-        var checkList = await context.CheckLists.FirstOrDefaultAsync(x => x.Id.Equals(model.CheckListId));
-        ProcessException.ThrowIf(() => checkList is null, $"CheckList (id: {model.CheckListId} was not found");
+         model.Date = DateTime.Now;
+         var checkList = mapper.Map<CheckList>(model);
+         await context.CheckLists.AddAsync(checkList);
+         context.SaveChanges();
 
-        checkList = mapper.Map(model, checkList);
+         return mapper.Map<CheckListModel>(checkList);
+     }
 
-        context.CheckLists.Update(checkList);
-        context.SaveChanges();
-    }
+     public async Task UpdateCheckList(UpdateCheckListModel model)
+     {
+         updateCheckListModelValidator.Check(model);
 
-   /* public async Task DeleteCheckList(int id)
-    {
-        using var context = await contextFactory.CreateDbContextAsync();
+         using var context = await contextFactory.CreateDbContextAsync();
 
-        var checkList = await context.CheckLists.FirstOrDefaultAsync(x => x.Id.Equals(id));
-        ProcessException.ThrowIf(() => checkList is null, $"CheckList (id: {id} was not found");
+         var checkList = await context.CheckLists.FirstOrDefaultAsync(x => x.Id.Equals(model.CheckListId));
 
-       //CHANGE: проверить права на список
+         ProcessException.ThrowIf(() => checkList is null, $"CheckList (id: {model.CheckListId} was not found");
 
-        context.Remove(checkList);
-        context.SaveChanges();
-    }*/
+         checkList = mapper.Map(model, checkList);
+
+         context.CheckLists.Update(checkList);
+         context.SaveChanges();
+     }
+
+     public async Task ShareCheckList(ShareCheckListModel model) //CHANGE: СДЕЛАТЬ!
+     {
+        /* shareCheckListModelValidator.Check(model);
+
+         using var context = await contextFactory.CreateDbContextAsync();
+
+         var checkList = await context.CheckLists.FirstOrDefaultAsync(x => x.Id.Equals(model.CheckListId));
+         ProcessException.ThrowIf(() => checkList is null, $"CheckList (id: {model.CheckListId} was not found");
+
+         checkList = mapper.Map(model, checkList);
+
+         context.CheckLists.Update(checkList);
+         context.SaveChanges();
+     }
+
+    /* public async Task DeleteCheckList(int id)
+     {
+         using var context = await contextFactory.CreateDbContextAsync();
+
+         var checkList = await context.CheckLists.FirstOrDefaultAsync(x => x.Id.Equals(id));
+         ProcessException.ThrowIf(() => checkList is null, $"CheckList (id: {id} was not found");
+
+        //CHANGE: проверить права на список
+
+         context.Remove(checkList);
+         context.SaveChanges();
+     }*/
 }

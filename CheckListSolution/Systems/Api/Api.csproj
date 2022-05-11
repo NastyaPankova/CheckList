@@ -29,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\ListItems\Models\" />
     <Folder Include="Controllers\Users\" />
     <Folder Include="logs\" />
   </ItemGroup>

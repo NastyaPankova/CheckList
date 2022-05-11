@@ -12,6 +12,7 @@ namespace CheckListDbContext.Context
         public DbSet<ListItem> ListItems { get; set; }
         public DbSet<Permision> Permisions { get; set; }
         public DbSet<Status> Statuses { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public MainDbContext(DbContextOptions<MainDbContext> options) : base(options)   { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -23,6 +24,8 @@ namespace CheckListDbContext.Context
             modelBuilder.Entity<Permision>().HasIndex(u => u.Name).IsUnique();
 
             modelBuilder.Entity<Status>().HasIndex(u => u.Name).IsUnique();
+
+            modelBuilder.Entity<User>().HasIndex(u => u.Email).IsUnique();
 
             base.OnModelCreating(modelBuilder);
         }

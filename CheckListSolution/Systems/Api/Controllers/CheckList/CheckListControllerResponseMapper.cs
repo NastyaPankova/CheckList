@@ -1,7 +1,7 @@
 ﻿using Api.Controllers.CheckList.Models;
 using CheckListService.Models;
 
-namespace Api.Controllers.CheckLists;
+namespace Api.Controllers.CheckList;
 
 public static class CheckListControllerResponseMapper
 {
@@ -17,11 +17,12 @@ public static class CheckListControllerResponseMapper
 
         return item;
     }
-    public static GetCheckListByIdResponse ConvertToCheckListByIdResponse(this GetCheckListByIdModel model)
+
+    public static CheckListByIdResponse ConvertToCheckListByIdResponse(this CheckListByIdModel model)
     {
         var items = model.Items.Select(d => d.ConvertToListItemResponse()).ToList();      
 
-        var response = new GetCheckListByIdResponse();
+        var response = new CheckListByIdResponse();
         response.Id = model.Id;
         response.Name = model.Name;
         response.Description = model.Description;
@@ -31,5 +32,26 @@ public static class CheckListControllerResponseMapper
         response.Items = items;
 
         return response;
+    }
+    public static CheckListResponse ConvertToCheckListResponse(this CheckListModel model)
+    {
+        var response = new CheckListResponse();
+        response.Id = model.Id;
+        response.Name = model.Name;
+        response.Description = model.Description;
+        response.Date = model.Date;
+        response.Permision = model.Permision;
+
+        return response;
+    }
+
+    public static AddCheckListModel ConvertToAddCheckListModel(this AddCheckListRequest request, Guid UserId)
+    {
+        var model = new AddCheckListModel();
+        model.Name = request.Name;
+        model.Description = request.Description;
+        model.UserId = UserId;
+
+        return model;
     }
 }

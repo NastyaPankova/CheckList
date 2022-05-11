@@ -8,8 +8,6 @@ public class AddCheckListRequest
 {
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
-    public int UserId { get; set; }
-
 }
 
 public class AddCheckListValidator : AbstractValidator<AddCheckListRequest>
@@ -24,15 +22,5 @@ public class AddCheckListValidator : AbstractValidator<AddCheckListRequest>
         RuleFor(x => x.Description)
             .MaximumLength(CommonConstants.MaxDescriptionListLength)
             .WithMessage($"Description is too long (no more then {CommonConstants.MaxDescriptionListLength} symbols)");
-
-        RuleFor(x => x.UserId).NotEmpty().WithMessage("UserId is required");
-    }
-}
-
-public class AddCheckListRequestProfile : Profile
-{
-    public AddCheckListRequestProfile()
-    {
-        CreateMap<AddCheckListRequest, AddCheckListModel>();
     }
 }

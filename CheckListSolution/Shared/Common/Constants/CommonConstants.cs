@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Common
+﻿namespace Common
 {
     public static class CommonConstants
     {
@@ -13,5 +7,9 @@ namespace Common
         public const int MaxContentItemLength = 300;
         public const int Offset = 0;
         public const int LimitCheckLists = 10;
+        public const string Creator = "Creator";
+        public const string Reader = "Reader";
+        public const string Marked = "Marked";
+        public const string Unmarked = "Unmarked";
     }
 }

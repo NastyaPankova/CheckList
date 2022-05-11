@@ -1,5 +1,5 @@
 ﻿namespace CheckListService.Models;
-public class GetCheckListByIdModel
+public class CheckListByIdModel
 {
     public int? Id { get; set; }
     public string? Name { get; set; }

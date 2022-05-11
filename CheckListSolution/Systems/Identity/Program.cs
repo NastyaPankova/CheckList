@@ -3,8 +3,6 @@ using Identity.Configuration;
 using Settings;
 using Settings.Interface;
 
-
-
 // Configure application
 var builder = WebApplication.CreateBuilder(args);
 

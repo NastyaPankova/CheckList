@@ -1,6 +1,4 @@
-﻿// CHANGED: old file (10.02) from git
-
-namespace Api.Configuration;
+﻿namespace Api.Configuration;
 
 using Settings.Interface;
 using IdentityServer4.AccessTokenValidation;
@@ -9,11 +7,10 @@ using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
-using static IdentityModel.OidcConstants;
 
 public static class SwaggerConfiguration
 {
-    private static string AppTitle = "Check List Api"; // CHANGED: DSR NetSchool API -> Check List Api
+    private static string AppTitle = "Check List Api";
 
 
     public static IServiceCollection AddAppSwagger(this IServiceCollection services, IApiSettings settings)
@@ -95,8 +92,6 @@ public static class SwaggerConfiguration
 
         return services;
     }
-
-
 
     public static void UseAppSwagger(this WebApplication app)
     {

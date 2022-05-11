@@ -46,8 +46,6 @@ public static class AuthConfiguration
                 options.Audience = "api";
                 
             });
-
-        //CHANGED:!!!!!!!!!!!!!1
         services.AddAuthorization();
 
         return services;

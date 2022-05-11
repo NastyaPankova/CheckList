@@ -1,5 +1,6 @@
 ﻿using CheckListDbContext.Context;
 using DbEntities;
+using Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,16 +12,16 @@ public static class DbSeed
         if (context.Permisions.Any() || context.CheckListUsers.Any())
             return;
 
-        var creator = new Permision() { Name = "Creator" };
+        var creator = new Permision() { Name = CommonConstants.Creator };
         context.Permisions.Add(creator);
 
-        var reader = new Permision() { Name = "Reader" };
+        var reader = new Permision() { Name = CommonConstants.Reader };
         context.Permisions.Add(reader);
 
-        var marked = new Status() { Name = "Marked" };
+        var marked = new Status() { Name = CommonConstants.Marked };
         context.Statuses.Add(marked);
 
-        var unmarked = new Status() { Name = "Unmarked" };
+        var unmarked = new Status() { Name = CommonConstants.Unmarked };
         context.Statuses.Add(unmarked);
 
         var test_user_1 = new User { Name = "Alex" };

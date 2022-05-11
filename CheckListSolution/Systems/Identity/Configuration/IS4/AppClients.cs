@@ -1,6 +1,5 @@
 ﻿namespace Identity.Configuration.IS4;
 
-using Duende.IdentityServer;
 using Duende.IdentityServer.Models;
 
 public static class AppClients
