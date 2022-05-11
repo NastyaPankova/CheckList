@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using CheckListDbContext.Context;
+﻿using CheckListDbContext.Context;
 using CheckListService.Models;
 using Common;
 using Common.Exeptions;

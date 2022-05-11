@@ -5,7 +5,7 @@ public class AddItemModel
 {
     public string? Content { get; set; }
     public decimal? Cost { get; set; }
-    public int? CheckListId { get; set; }
+    public int CheckListId { get; set; }
 
 }
 public class AddItemModelValidator : AbstractValidator<AddItemModel>

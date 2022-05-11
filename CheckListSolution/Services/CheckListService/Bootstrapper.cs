@@ -8,7 +8,6 @@ public static class Bootstrapper
     {
         services.AddSingleton<ICheckListService, CheckListService>();
         services.AddSingleton<IListItemService, ListItemService>();
-        services.AddSingleton<IStateService, StateService>();
 
         return services;
     }

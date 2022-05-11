@@ -5,7 +5,6 @@ public class UpdateItemRequest
 {
     public string? Content { get; set; }
     public decimal? Cost { get; set; } 
-
 }
 public class UpdateItemRequestValidator : AbstractValidator<UpdateItemRequest>
 {

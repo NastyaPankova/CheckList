@@ -32,9 +32,9 @@ public class ListItemController : ControllerBase
     }
 
     [HttpPut("{ListItemId}")]
-    public async Task<OkResult> UpdateItem([FromRoute] int ListItemId, [FromBody] UpdateItemRequest request)
+    public async Task<OkResult> UpdateItem([FromRoute] int ListItemId, [FromRoute] int CheckListId, [FromBody] UpdateItemRequest request)
     {
-        var model = request.ConvertToUpdateItemModel(ListItemId);
+        var model = request.ConvertToUpdateItemModel(ListItemId, CheckListId);
         await listItemService.UpdateItem(model);
 
         return Ok();

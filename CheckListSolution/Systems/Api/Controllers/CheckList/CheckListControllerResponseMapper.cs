@@ -20,13 +20,15 @@ public static class CheckListControllerResponseMapper
     public static AddItemModel ConvertToAddItemModel(this AddItemRequest request)
     {
         var item = new AddItemModel();
+        item.CheckListId = request.CheckListId;
         item.Content = request.Content;
         item.Cost = request.Cost;
         return item;
     }
-    public static UpdateItemModel ConvertToUpdateItemModel(this UpdateItemRequest request, int ListItemId)
+    public static UpdateItemModel ConvertToUpdateItemModel(this UpdateItemRequest request, int ListItemId, int CheckListId)
     {
         var item = new UpdateItemModel();
+        item.CheckListId = CheckListId;
         item.ListItemId = ListItemId;
         item.Content = request.Content;
         item.Cost = request.Cost;

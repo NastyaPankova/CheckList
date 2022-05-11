@@ -19,17 +19,20 @@ public static class CheckListServiceModelMapper
 
         return item;
     }
-    public static ListItem ConvertToItem(this AddItemModel model)
+    public static ListItem ConvertToItem(this AddItemModel model, CheckList checkList, Status status)
     {
         var item = new ListItem();
+        item.CheckList = checkList; 
         item.Content = model.Content;
         item.Date = DateTime.Now;
         item.Cost = model.Cost;
+        item.Status = status;
         return item;
     }
 
     public static ListItem ConvertToItem(this ListItem item, UpdateItemModel updModel, Status status)
     {
+        item.Id = updModel.ListItemId;
         item.Content = updModel.Content;
         item.Date = DateTime.Now;
         item.Cost = updModel.Cost;

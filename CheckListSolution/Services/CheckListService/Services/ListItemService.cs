@@ -19,8 +19,7 @@ public class ListItemService : IListItemService
 
     public ListItemService(IDbContextFactory<MainDbContext> contextFactory, 
                             IModelValidator<AddItemModel> addItemModelValidator,
-                            IModelValidator<ShareCheckListModel> shareCheckListModelValidator,
-                            IModelValidator<UpdateCheckListModel> updateCheckListModelValidator        )
+                            IModelValidator<UpdateItemModel> updateItemModelValidator )
     {
         this.contextFactory = contextFactory;
         this.addItemModelValidator = addItemModelValidator;
@@ -36,12 +35,11 @@ public class ListItemService : IListItemService
         var isExist = await context.CheckLists.FirstOrDefaultAsync(x => x.Id.Equals(model.CheckListId));
         ProcessException.ThrowIf(() => isExist is null, "No such Check List");
 
-        var listItem = model.ConvertToItem();
         var checkList = await context.CheckLists.FirstOrDefaultAsync(x => x.Id.Equals(model.CheckListId));
         var status = await context.Statuses.FirstOrDefaultAsync(x => x.Name.ToLower().Equals(CommonConstants.Unmarked.ToLower()));
-        var newCheckListItem = new ListItem { CheckList = checkList, Status = status };
-
-        await context.ListItems.AddAsync(newCheckListItem);
+        var listItem = model.ConvertToItem(checkList, status);
+       
+        await context.ListItems.AddAsync(listItem);
      
         context.SaveChanges();
     }
