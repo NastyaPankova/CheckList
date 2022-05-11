@@ -2,12 +2,13 @@
 
 using Api.Controllers.CheckList.Models;
 using CheckListService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [Route("api/v{version:apiVersion}/states")]
 [ApiController]
 [ApiVersion("1.0")]
-//[Authorize("api")]
+[Authorize("api")]
 
 public class StateController : ControllerBase
 {
@@ -38,7 +39,7 @@ public class StateController : ControllerBase
         return Ok();
     }
 
-    [HttpPut("permisions{PermisionId}")]
+    [HttpPut("{PermisionId}")]
     public async Task<OkResult> UpdatePermision([FromRoute] int PermisionId, [FromBody] string Name)
     {
         if (string.IsNullOrEmpty(Name))
@@ -47,7 +48,7 @@ public class StateController : ControllerBase
         return Ok();
     }
 
-    [HttpPut("statuses{StatusId}")]
+    [HttpPut("{StatusId}")]
     public async Task<OkResult> UpdateStatus([FromRoute] int StatusId, [FromBody] string Name)
     {
         if (string.IsNullOrEmpty(Name))

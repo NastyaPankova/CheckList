@@ -7,7 +7,6 @@ public class UpdateItemModel
     public int? ListItemId { get; set; }
     public string? Content { get; set; }
     public decimal? Cost { get; set; } 
-
 }
 public class UpdateItemModelValidator : AbstractValidator<UpdateItemModel>
 {

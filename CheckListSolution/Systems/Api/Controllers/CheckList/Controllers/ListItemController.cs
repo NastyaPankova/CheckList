@@ -2,12 +2,13 @@
 
 using Api.Controllers.CheckList.Models;
 using CheckListService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [Route("api/v{version:apiVersion}/listitems")]
 [ApiController]
 [ApiVersion("1.0")]
-//[Authorize("api")]
+[Authorize("api")]
 
 public class ListItemController : ControllerBase
 {
@@ -30,7 +31,7 @@ public class ListItemController : ControllerBase
         return Ok();
     }
 
-    [HttpPut("update{ListItemId}")]
+    [HttpPut("{ListItemId}")]
     public async Task<OkResult> UpdateItem([FromRoute] int ListItemId, [FromBody] UpdateItemRequest request)
     {
         var model = request.ConvertToUpdateItemModel(ListItemId);
@@ -39,7 +40,7 @@ public class ListItemController : ControllerBase
         return Ok();
     }
 
-    [HttpPut("{ListItemId}")]
+    [HttpPut("mark/{ListItemId}")]
     public async Task<OkResult> MarkItem([FromRoute] int ListItemId)
     {
         await listItemService.MarkItem(ListItemId);

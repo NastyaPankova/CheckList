@@ -2,6 +2,7 @@
 
 using Api.Controllers.CheckList.Models;
 using CheckListService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [Route("api/v{version:apiVersion}/checklists")]

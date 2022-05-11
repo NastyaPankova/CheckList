@@ -46,7 +46,7 @@ public static class AuthConfiguration
                 options.Audience = "api";
                 
             });
-        services.AddAuthorization();
+        services.AddAuthorization(options => options.AddPolicy("api", policy => policy.RequireClaim("scope", "api")));
 
         return services;
     }
