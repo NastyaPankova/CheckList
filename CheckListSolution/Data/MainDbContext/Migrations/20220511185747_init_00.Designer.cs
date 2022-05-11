@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CheckListDbContext.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    [Migration("20220511051600_init_00")]
+    [Migration("20220511185747_init_00")]
     partial class init_00
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -201,6 +201,10 @@ namespace CheckListDbContext.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique()
+                        .HasFilter("[Email] IS NOT NULL");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
